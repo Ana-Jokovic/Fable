@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fable – Mockups per Story</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #D6CFC4;
+      min-height: 100vh;
+      padding: 48px 32px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .back {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8A7C6C;
+      text-decoration: none;
+    }
+    .back:hover { color: #2B2320; }
+    header h1 { font-size: 24px; font-weight: 800; color: #2B2320; }
+    .grid {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #F7F1E6;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 200px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    }
+    .card-thumb {
+      height: 140px;
+      background: #1B4332;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 800;
+      color: #F7F1E6;
+      letter-spacing: -1px;
+    }
+    .card-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .card-title { font-size: 14px; font-weight: 700; color: #2B2320; }
+    .card-desc  { font-size: 11px; color: #8A7C6C; line-height: 1.4; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="back" href="index.html">← Back</a>
+    <h1>Mockups per Story</h1>
+  </header>
+
+  <div class="grid">
+
+    <a class="card" href="story1.html">
+      <div class="card-thumb">S1</div>
+      <div class="card-body">
+        <div class="card-title">S1 – Empty State</div>
+        <div class="card-desc">Home screen when no books exist. Illustration, title, subtitle and CTA button.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story2.html">
+      <div class="card-thumb">S2</div>
+      <div class="card-body">
+        <div class="card-title">S2 – Add a Book</div>
+        <div class="card-desc">FAB opens Add Book form. Title, author, save and validation error state.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story3.html">
+      <div class="card-thumb">S3</div>
+      <div class="card-body">
+        <div class="card-title">S3 – Read List</div>
+        <div class="card-desc">Empty state and scrollable list of books showing title and author.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story4.html">
+      <div class="card-thumb">S4</div>
+      <div class="card-body">
+        <div class="card-title">S4 – Book Detail</div>
+        <div class="card-desc">Tap a book row to open detail screen showing title, author and back button.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story5.html">
+      <div class="card-thumb">S5</div>
+      <div class="card-body">
+        <div class="card-title">S5 – Edit Book</div>
+        <div class="card-desc">Edit button opens pre-filled form. Save updates Book Detail with new values.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story6.html">
+      <div class="card-thumb">S6</div>
+      <div class="card-body">
+        <div class="card-title">S6 – Delete Book</div>
+        <div class="card-desc">Delete button triggers confirm alert. Confirmed deletion removes book and navigates back to list.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story7.html">
+      <div class="card-thumb">S7</div>
+      <div class="card-body">
+        <div class="card-title">S7 – Extended Form Fields</div>
+        <div class="card-desc">Genre, pages, publisher and dates added to Add and Edit forms. Genre shown on book row.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story8.html">
+      <div class="card-thumb">S8</div>
+      <div class="card-body">
+        <div class="card-title">S8 – Tab Bar</div>
+        <div class="card-desc">Read and Wish List tabs with badge counts. Mark as Read toggle determines which tab a book appears in.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story9.html">
+      <div class="card-thumb">S9</div>
+      <div class="card-body">
+        <div class="card-title">S9 – Rating</div>
+        <div class="card-desc">Star rating in Add and Edit forms. Book Detail displays saved rating.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story10.html">
+      <div class="card-thumb">S10</div>
+      <div class="card-body">
+        <div class="card-title">S10 – Cover Image</div>
+        <div class="card-desc">Cover picker in Add and Edit forms. Thumbnail on book row, full cover on Book Detail.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story11.html">
+      <div class="card-thumb">S11</div>
+      <div class="card-body">
+        <div class="card-title">S11 – Search</div>
+        <div class="card-desc">Search bar filters by title and author in real time. Highlights matches, shows no-results state.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story12.html">
+      <div class="card-thumb">S12</div>
+      <div class="card-body">
+        <div class="card-title">S12 – Filter Sheet</div>
+        <div class="card-desc">Bottom sheet with genre chips and author list. Active filters shown as chips on list. Clear All resets.</div>
+      </div>
+    </a>
+
+    <a class="card" href="story13.html">
+      <div class="card-thumb">S13</div>
+      <div class="card-body">
+        <div class="card-title">S13 – Sort Sheet</div>
+        <div class="card-desc">Bottom sheet with 5 sort options, each with asc/desc toggle. Active sort shown on list with label.</div>
+      </div>
+    </a>
+
+  </div>
+
+</body>
+</html>

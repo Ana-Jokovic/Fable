@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S11 – Search</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .page-header { text-align: center; margin-bottom: 32px; }
+    .page-header h1 { font-size: 22px; font-weight: 800; color: #2B2320; margin-bottom: 6px; }
+    .page-header p { font-size: 13px; color: #8A7C6C; max-width: 600px; margin: 0 auto; line-height: 1.5; }
+    .back { font-size: 13px; font-weight: 600; color: #8A7C6C; text-decoration: none; display: block; text-align: center; margin-bottom: 24px; }
+    .back:hover { color: #2B2320; }
+    .screens-row { display: flex; gap: 32px; align-items: flex-start; justify-content: center; flex-wrap: wrap; }
+    .screen-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .screen-col .phone { height: 720px; display: flex; flex-direction: column; }
+    .screen-label { font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1px; text-align: center; max-width: 200px; }
+    .arrow { font-size: 28px; color: #C9A227; align-self: center; margin-top: 80px; }
+
+    /* Search bar */
+    .search-row { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--bg); }
+    .search-input {
+      flex: 1; height: 38px; border-radius: 10px;
+      background: var(--surface); border: 1.5px solid var(--border);
+      padding: 0 12px; font-size: 13px; color: var(--text2);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .search-input.active {
+      border-color: var(--nav);
+      box-shadow: 0 0 0 3px rgba(27,67,50,0.08);
+      color: var(--text);
+    }
+    .search-input .search-icon { opacity: 0.4; }
+    .search-input .search-query { color: var(--text); font-weight: 500; }
+    .search-input .search-cursor {
+      width: 2px; height: 14px; background: var(--nav);
+      animation: blink 1s infinite; display: inline-block;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .search-cancel { font-size: 13px; font-weight: 600; color: var(--accent); white-space: nowrap; flex-shrink: 0; }
+
+    /* Result count bar */
+    .result-bar {
+      padding: 4px 16px 8px;
+      font-size: 11px; color: var(--text2);
+      background: var(--bg);
+    }
+    .result-bar span { font-weight: 700; color: var(--text); }
+
+    /* Book list */
+    .book-list { flex: 1; padding: 4px 16px 12px; display: flex; flex-direction: column; gap: 10px; background: var(--bg); overflow-y: auto; }
+    .book-card {
+      border-radius: 14px; padding: 12px;
+      display: flex; gap: 12px; align-items: center;
+      background: var(--surface); border: 1px solid var(--border);
+    }
+    .book-thumb { width: 48px; height: 68px; border-radius: 6px; flex-shrink: 0; overflow: hidden; }
+    .book-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .book-thumb-placeholder { width: 48px; height: 68px; border-radius: 6px; flex-shrink: 0; background: var(--nav); display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--bg); }
+    .book-info { flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .book-eyebrow { font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; }
+    .book-title { font-size: 14px; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .book-title mark { background: rgba(201,162,39,0.25); color: var(--text); border-radius: 2px; padding: 0 1px; }
+    .book-author { font-size: 12px; color: var(--text2); }
+    .book-author mark { background: rgba(201,162,39,0.25); color: var(--text2); border-radius: 2px; padding: 0 1px; }
+    .book-stars { font-size: 11px; color: var(--gold); letter-spacing: 1px; }
+    .book-chevron { font-size: 16px; color: var(--border); flex-shrink: 0; }
+
+    /* No results */
+    .no-results {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 10px; padding: 32px 40px; background: var(--bg);
+    }
+    .no-results-icon { font-size: 40px; opacity: 0.25; }
+    .no-results-title { font-size: 16px; font-weight: 700; color: var(--text); text-align: center; }
+    .no-results-sub { font-size: 13px; color: var(--text2); text-align: center; line-height: 1.5; }
+
+    /* AC box */
+    .ac-box { background: #F7F1E6; border: 1px solid #E4D9C4; border-radius: 12px; padding: 16px 20px; max-width: 960px; width: 100%; }
+    .ac-box h3 { font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .ac-row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .ac-col { flex: 1; min-width: 160px; }
+    .ac-col-title { font-size: 11px; font-weight: 700; color: #2B2320; margin-bottom: 6px; }
+    .ac-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .ac-col li { font-size: 12px; color: #2B2320; line-height: 1.5; padding-left: 16px; position: relative; }
+    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #1B4332; font-weight: 700; }
+    .ac-col li.out { color: #8A7C6C; }
+    .ac-col li.out::before { content: '✕'; color: #8A7C6C; }
+  </style>
+</head>
+<body>
+
+  <a class="back" href="stories.html">← Back to Stories</a>
+
+  <div class="page-header">
+    <h1>S11 – Search</h1>
+    <p>As a user, I want to search my book list by title or author, so that I can quickly find a specific book without scrolling through the entire list.</p>
+  </div>
+
+  <div class="screens-row">
+
+    <!-- Screen 1: Book list – search bar idle -->
+    <div class="screen-col">
+      <div class="screen-label">1 · Book list – search idle</div>
+      <div class="phone">
+        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-bar">
+          <div class="nav-title">My Books</div>
+        </div>
+        <div class="top-tabs">
+          <a class="tab active" href="#">Read <span class="tab-count">5</span></a>
+          <a class="tab" href="#">Wish List <span class="tab-count">2</span></a>
+        </div>
+        <div class="search-row">
+          <div class="search-input">
+            <span class="search-icon">🔍</span>
+            Search by title or author...
+          </div>
+        </div>
+        <div class="book-list">
+          <div class="book-card">
+            <div class="book-thumb"><img src="https://covers.openlibrary.org/b/isbn/9780307588371-L.jpg" alt="Gone Girl"></div>
+            <div class="book-info">
+              <div class="book-eyebrow">Mystery</div>
+              <div class="book-title">Gone Girl</div>
+              <div class="book-author">Gillian Flynn</div>
+              <div class="book-stars">★★★★★</div>
+            </div>
+            <div class="book-chevron">›</div>
+          </div>
+          <div class="book-card">
+            <div class="book-thumb-placeholder">📖</div>
+            <div class="book-info">
+              <div class="book-eyebrow">Mystery</div>
+              <div class="book-title">Sharp Objects</div>
+              <div class="book-author">Gillian Flynn</div>
+              <div class="book-stars">★★★★☆</div>
+            </div>
+            <div class="book-chevron">›</div>
+          </div>
+          <div class="book-card">
+            <div class="book-thumb"><img src="https://covers.openlibrary.org/b/isbn/9780425272893-L.jpg" alt="Big Little Lies"></div>
+            <div class="book-info">
+              <div class="book-eyebrow">Fiction</div>
+              <div class="book-title">Big Little Lies</div>
+              <div class="book-author">Liane Moriarty</div>
+              <div class="book-stars">★★★★☆</div>
+            </div>
+            <div class="book-chevron">›</div>
+          </div>
+          <div class="book-card">
+            <div class="book-thumb-placeholder">📖</div>
+            <div class="book-info">
+              <div class="book-eyebrow">Mystery</div>
+              <div class="book-title">The Girl on the Train</div>
+              <div class="book-author">Paula Hawkins</div>
+              <div class="book-stars">★★★☆☆</div>
+            </div>
+            <div class="book-chevron">›</div>
+          </div>
+          <div class="book-card">
+            <div class="book-thumb-placeholder">📖</div>
+            <div class="book-info">
+              <div class="book-eyebrow">Mystery</div>
+              <div class="book-title">In the Woods</div>
+              <div class="book-author">Tana French</div>
+              <div class="book-stars">★★★★☆</div>
+            </div>
+            <div class="book-chevron">›</div>
+          </div>
+        </div>
+        <div class="fab-area"><div class="fab">+</div></div>
+      </div>
+      <div class="jira-badge"><span class="jira-tag">S11 – Search idle</span></div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <!-- Screen 2: Search active – results found -->
+    <div class="screen-col">
+      <div class="screen-label">2 · Search "Flynn" – 2 results</div>
+      <div class="phone">
+        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-bar">
+          <div class="nav-title">My Books</div>
+        </div>
+        <div class="top-tabs">
+          <a class="tab active" href="#">Read <span class="tab-count">5</span></a>
+          <a class="tab" href="#">Wish List <span class="tab-count">2</span></a>
+        </div>
+        <div class="search-row">
+          <div class="search-input active">
+            <span class="search-icon">🔍</span>
+            <span class="search-query">Flynn</span><span class="search-cursor"></span>
+          </div>
+          <span class="search-cancel">Cancel</span>
+        </div>
+        <div class="result-bar"><span>2</span> results</div>
+        <div class="book-list">
+          <div class="book-card">
+            <div class="book-thumb"><img src="https://covers.openlibrary.org/b/isbn/9780307588371-L.jpg" alt="Gone Girl"></div>
+            <div class="book-info">
+              <div class="book-eyebrow">Mystery</div>
+              <div class="book-title">Gone Girl</div>
+              <div class="book-author"><mark>Flynn</mark>, Gillian</div>
+              <div class="book-stars">★★★★★</div>
+            </div>
+            <div class="book-chevron">›</div>
+          </div>
+          <div class="book-card">
+            <div class="book-thumb-placeholder">📖</div>
+            <div class="book-info">
+              <div class="book-eyebrow">Mystery</div>
+              <div class="book-title">Sharp Objects</div>
+              <div class="book-author"><mark>Flynn</mark>, Gillian</div>
+              <div class="book-stars">★★★★☆</div>
+            </div>
+            <div class="book-chevron">›</div>
+          </div>
+        </div>
+        <div class="fab-area"><div class="fab">+</div></div>
+      </div>
+      <div class="jira-badge"><span class="jira-tag">S11 – Results found</span></div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <!-- Screen 3: Search active – no results -->
+    <div class="screen-col">
+      <div class="screen-label">3 · Search "Tolkien" – no results</div>
+      <div class="phone">
+        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-bar">
+          <div class="nav-title">My Books</div>
+        </div>
+        <div class="top-tabs">
+          <a class="tab active" href="#">Read <span class="tab-count">5</span></a>
+          <a class="tab" href="#">Wish List <span class="tab-count">2</span></a>
+        </div>
+        <div class="search-row">
+          <div class="search-input active">
+            <span class="search-icon">🔍</span>
+            <span class="search-query">Tolkien</span><span class="search-cursor"></span>
+          </div>
+          <span class="search-cancel">Cancel</span>
+        </div>
+        <div class="no-results">
+          <div class="no-results-icon">🔍</div>
+          <div class="no-results-title">No results for "Tolkien"</div>
+          <div class="no-results-sub">Try a different title or author name.</div>
+        </div>
+        <div class="fab-area"><div class="fab">+</div></div>
+      </div>
+      <div class="jira-badge"><span class="jira-tag">S11 – No results</span></div>
+    </div>
+
+  </div>
+
+  <!-- AC box -->
+  <div style="display:flex; justify-content:center; margin-top: 32px; padding: 0 20px;">
+    <div class="ac-box">
+      <h3>Acceptance Criteria</h3>
+      <div class="ac-row">
+        <div class="ac-col">
+          <div class="ac-col-title">Search bar</div>
+          <ul>
+            <li>Search bar visible below tab bar</li>
+            <li>Placeholder: "Search by title or author..."</li>
+            <li>Tapping bar activates it with focused style</li>
+            <li>"Cancel" button appears when active</li>
+            <li>Tapping Cancel clears query and dismisses keyboard</li>
+          </ul>
+        </div>
+        <div class="ac-col">
+          <div class="ac-col-title">Results</div>
+          <ul>
+            <li>List filters in real time as user types</li>
+            <li>Matches title and author, case-insensitive</li>
+            <li>Result count shown above list</li>
+            <li>Matching text highlighted in results</li>
+            <li>Only active tab's books are searched</li>
+          </ul>
+        </div>
+        <div class="ac-col">
+          <div class="ac-col-title">No results</div>
+          <ul>
+            <li>Empty state shown with search query in message</li>
+            <li>Suggestion to try a different term</li>
+            <li>FAB remains visible</li>
+          </ul>
+        </div>
+        <div class="ac-col">
+          <div class="ac-col-title">Out of scope</div>
+          <ul>
+            <li class="out">Search history / suggestions</li>
+            <li class="out">Search across both tabs simultaneously</li>
+            <li class="out">Filter and sort</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

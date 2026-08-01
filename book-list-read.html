@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookApp – Book List (Read)</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .sort-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px 10px;
+      background: var(--bg);
+    }
+    .sort-label {
+      font-size: 11px;
+      color: var(--text2);
+    }
+    .sort-btn {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-label">S3 · S4 · S5 · S11 · S12 – Book List (Read)</div>
+
+  <div class="phone">
+
+    <div class="status-bar">
+      <span>9:41</span>
+      <span>●●● 🔋</span>
+    </div>
+
+    <div class="nav-bar">
+      <div class="nav-title">My Books</div>
+      <div class="nav-icons">
+      </div>
+    </div>
+
+    <div class="top-tabs">
+      <a class="tab active" href="book-list-read.html">
+        Read <span class="tab-count">12</span>
+      </a>
+      <a class="tab" href="book-list-wishlist.html">
+        Wish List <span class="tab-count">5</span>
+      </a>
+    </div>
+
+    <div class="search-row">
+      <div class="search-input">🔍 Search by title or author...</div>
+      <a class="filter-btn" href="sort-sheet.html">⇅</a>
+      <a class="filter-btn" href="filter-sheet.html">⊟</a>
+    </div>
+
+    <div class="chips-row">
+      <span class="chip active">Mystery ✕</span>
+      <span class="chip inactive">Sci-Fi</span>
+      <span class="chip inactive">Fantasy</span>
+      <span class="chip inactive">Fiction</span>
+    </div>
+
+    <div class="sort-bar">
+      <span class="sort-label">12 books · sorted by Rating ↓</span>
+      <a class="sort-btn" href="sort-sheet.html">⇅ Change</a>
+    </div>
+
+    <div class="book-list">
+
+      <a class="book-card" href="book-detail.html">
+        <div class="book-cover">📖</div>
+        <div class="book-info">
+          <div class="book-eyebrow">Mystery</div>
+          <div class="book-title">Gone Girl</div>
+          <div class="book-author">Gillian Flynn</div>
+          <div class="book-stars">★★★★★</div>
+        </div>
+        <div class="book-chevron">›</div>
+      </a>
+
+      <a class="book-card" href="book-detail.html">
+        <div class="book-cover">📖</div>
+        <div class="book-info">
+          <div class="book-eyebrow">Mystery</div>
+          <div class="book-title">Big Little Lies</div>
+          <div class="book-author">Liane Moriarty</div>
+          <div class="book-stars">★★★★☆</div>
+        </div>
+        <div class="book-chevron">›</div>
+      </a>
+
+      <a class="book-card" href="book-detail.html">
+        <div class="book-cover">📖</div>
+        <div class="book-info">
+          <div class="book-eyebrow">Mystery</div>
+          <div class="book-title">The Girl on the Train</div>
+          <div class="book-author">Paula Hawkins</div>
+          <div class="book-stars">★★★☆☆</div>
+        </div>
+        <div class="book-chevron">›</div>
+      </a>
+
+      <a class="book-card" href="book-detail.html">
+        <div class="book-cover">📖</div>
+        <div class="book-info">
+          <div class="book-eyebrow">Mystery</div>
+          <div class="book-title">In the Woods</div>
+          <div class="book-author">Tana French</div>
+          <div class="book-stars">★★★★☆</div>
+        </div>
+        <div class="book-chevron">›</div>
+      </a>
+
+      <a class="book-card" href="book-detail.html">
+        <div class="book-cover">📖</div>
+        <div class="book-info">
+          <div class="book-eyebrow">Mystery</div>
+          <div class="book-title">Sharp Objects</div>
+          <div class="book-author">Gillian Flynn</div>
+          <div class="book-stars">★★★★☆</div>
+        </div>
+        <div class="book-chevron">›</div>
+      </a>
+
+    </div>
+
+    <div class="fab-area">
+      <a class="fab" href="add-book.html">+</a>
+    </div>
+
+  </div>
+
+  <div class="jira-badge">
+    <span class="jira-tag">S3 – Book Row</span>
+    <span class="jira-tag">S4 – Book List</span>
+    <span class="jira-tag">S5 – Top Tab Bar</span>
+    <span class="jira-tag">S11 – Search by Title</span>
+    <span class="jira-tag">S12 – Search by Author</span>
+  </div>
+
+</body>
+</html>

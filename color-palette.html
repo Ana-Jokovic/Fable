@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fable – Color Palette</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #D6CFC4;
+      min-height: 100vh;
+      padding: 48px 32px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .back { font-size: 13px; font-weight: 600; color: #8A7C6C; text-decoration: none; }
+    .back:hover { color: #2B2320; }
+    header h1 { font-size: 24px; font-weight: 800; color: #2B2320; }
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 780px;
+    }
+    .swatch {
+      background: #F7F1E6;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .swatch-color {
+      height: 140px;
+      width: 100%;
+    }
+    .swatch-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .swatch-label { font-size: 15px; font-weight: 700; color: #2B2320; }
+    .swatch-token { font-size: 12px; color: #8A7C6C; font-family: monospace; }
+    .swatch-hex   { font-size: 13px; color: #8A7C6C; font-family: monospace; }
+    .swatch-usage { font-size: 12px; color: #8A7C6C; margin-top: 6px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="back" href="index.html">← Back</a>
+    <h1>Color Palette</h1>
+  </header>
+
+  <div class="palette-grid">
+
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1B4332;"></div>
+      <div class="swatch-body">
+        <div class="swatch-label">Nav / Tab</div>
+        <div class="swatch-token">--nav</div>
+        <div class="swatch-hex">#1B4332</div>
+        <div class="swatch-usage">Navigation bar, tab bar background</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F7F1E6; border-bottom: 1px solid #E4D9C4;"></div>
+      <div class="swatch-body">
+        <div class="swatch-label">Background</div>
+        <div class="swatch-token">--bg</div>
+        <div class="swatch-hex">#F7F1E6</div>
+        <div class="swatch-usage">Main screen background</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background:#FFFFFF; border-bottom: 1px solid #E4D9C4;"></div>
+      <div class="swatch-body">
+        <div class="swatch-label">Surface</div>
+        <div class="swatch-token">--surface</div>
+        <div class="swatch-hex">#FFFFFF</div>
+        <div class="swatch-usage">Cards, sheets, modals</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background:#EFE6D6;"></div>
+      <div class="swatch-body">
+        <div class="swatch-label">Surface 2</div>
+        <div class="swatch-token">--surface2</div>
+        <div class="swatch-hex">#EFE6D6</div>
+        <div class="swatch-usage">Input fields, inactive chips</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background:#2B2320;"></div>
+      <div class="swatch-body">
+        <div class="swatch-label">Text</div>
+        <div class="swatch-token">--text</div>
+        <div class="swatch-hex">#2B2320</div>
+        <div class="swatch-usage">Primary text, titles</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background:#8A7C6C;"></div>
+      <div class="swatch-body">
+        <div class="swatch-label">Text 2</div>
+        <div class="swatch-token">--text2</div>
+        <div class="swatch-hex">#8A7C6C</div>
+        <div class="swatch-usage">Secondary text, subtitles, placeholders</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background:#7A2E2E;"></div>
+      <div class="swatch-body">
+        <div class="swatch-label">Accent</div>
+        <div class="swatch-token">--accent</div>
+        <div class="swatch-hex">#7A2E2E</div>
+        <div class="swatch-usage">Primary buttons, FAB, active chips</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background:#C9A227;"></div>
+      <div class="swatch-body">
+        <div class="swatch-label">Gold</div>
+        <div class="swatch-token">--gold</div>
+        <div class="swatch-hex">#C9A227</div>
+        <div class="swatch-usage">Stars, tab indicator, eyebrow labels</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-color" style="background:#E4D9C4;"></div>
+      <div class="swatch-body">
+        <div class="swatch-label">Border</div>
+        <div class="swatch-token">--border</div>
+        <div class="swatch-hex">#E4D9C4</div>
+        <div class="swatch-usage">Card borders, dividers, chevrons</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 40px;">
+    <div style="font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px;">UI States</div>
+    <div class="palette-grid">
+
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FDF5F5;"></div>
+        <div class="swatch-body">
+          <div class="swatch-label">Error Field BG</div>
+          <div class="swatch-token">--error-bg</div>
+          <div class="swatch-hex">#FDF5F5</div>
+          <div class="swatch-usage">Input background when validation fails</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch-color" style="background:#7A2E2E;"></div>
+        <div class="swatch-body">
+          <div class="swatch-label">Error Border &amp; Text</div>
+          <div class="swatch-token">--accent</div>
+          <div class="swatch-hex">#7A2E2E</div>
+          <div class="swatch-usage">Input border and error message text when validation fails</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch-color" style="background:#7A2E2E; opacity: 0.5;"></div>
+        <div class="swatch-body">
+          <div class="swatch-label">Disabled Button</div>
+          <div class="swatch-token">--accent @ 50%</div>
+          <div class="swatch-hex">opacity: 0.5</div>
+          <div class="swatch-usage">Save button when form is invalid</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

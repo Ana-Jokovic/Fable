@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookApp – Edit Book</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .form-scroll { flex: 1; overflow-y: auto; background: var(--bg); }
+    .form-body { padding: 20px; display: flex; flex-direction: column; gap: 18px; }
+    .cover-picker {
+      align-self: center;
+      width: 90px; height: 124px;
+      border-radius: 10px;
+      background: var(--nav);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 6px; cursor: pointer;
+      position: relative;
+      font-size: 48px;
+    }
+    .cover-edit-badge {
+      position: absolute;
+      bottom: -8px; right: -8px;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      border: 2px solid var(--bg);
+    }
+    .field-group { display: flex; flex-direction: column; gap: 6px; }
+    .field-label { font-size: 11px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.8px; }
+    .field-label span { color: var(--accent); margin-left: 2px; }
+    .field-input {
+      height: 46px; border-radius: 12px;
+      background: var(--surface); border: 1.5px solid var(--border);
+      padding: 0 14px; font-size: 15px; color: var(--text);
+      display: flex; align-items: center;
+    }
+    .field-input.focused { border-color: var(--nav); box-shadow: 0 0 0 3px rgba(27,67,50,0.08); }
+    .tags-input {
+      min-height: 46px; border-radius: 12px;
+      background: var(--surface); border: 1.5px solid var(--border);
+      padding: 8px 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+    }
+    .tag {
+      height: 28px; border-radius: 8px;
+      background: var(--surface2); border: 1px solid var(--border);
+      padding: 0 10px; font-size: 13px; color: var(--text);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .tag-remove { font-size: 14px; color: var(--text2); cursor: pointer; }
+    .stars-input { display: flex; gap: 6px; }
+    .star { font-size: 28px; cursor: pointer; }
+    .star.filled { color: var(--gold); }
+    .star.empty { color: var(--border); }
+    .toggle-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 12px; padding: 12px 14px;
+    }
+    .toggle-info { display: flex; flex-direction: column; gap: 2px; }
+    .toggle-label { font-size: 14px; font-weight: 600; color: var(--text); }
+    .toggle-sublabel { font-size: 11px; color: var(--text2); }
+    .toggle { width: 44px; height: 26px; border-radius: 13px; background: var(--border); position: relative; flex-shrink: 0; transition: background 0.2s; cursor: pointer; }
+    .toggle::after { content: ''; position: absolute; left: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--bg); transition: left 0.2s; }
+    .toggle.on { background: var(--nav); }
+    .toggle.on::after { left: 21px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .section-divider { height: 1px; background: var(--border); }
+    .submit-btn {
+      height: 52px; border-radius: 14px;
+      background: var(--accent); color: var(--bg);
+      font-size: 16px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(122,46,46,0.35);
+    }
+    .submit-btn:hover { background: #8B3535; }
+    .delete-btn {
+      height: 48px; border-radius: 14px;
+      background: transparent; color: var(--accent);
+      font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; border: 1.5px solid var(--accent);
+    }
+    .delete-btn:hover { background: #FDF5F5; }
+  </style>
+</head>
+<body>
+
+  <div class="screen-label">S7 · S10 – Edit Book</div>
+
+  <div class="phone">
+
+    <div class="status-bar">
+      <span>9:41</span>
+      <span>●●● 🔋</span>
+    </div>
+
+    <div class="nav-bar">
+      <a class="nav-back" href="book-detail.html">Cancel</a>
+      <div class="nav-title">Edit Book</div>
+      <div style="width:48px;"></div>
+    </div>
+
+    <div class="form-scroll">
+      <div class="form-body">
+
+        <div class="cover-picker">
+          📖
+          <div class="cover-edit-badge">✎</div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">Title <span>*</span></div>
+          <div class="field-input focused">Gone Girl</div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">Authors <span>*</span></div>
+          <div class="tags-input">
+            <div class="tag">Gillian Flynn <span class="tag-remove">×</span></div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="field-group">
+            <div class="field-label">Genre</div>
+            <div class="field-input">Mystery</div>
+          </div>
+          <div class="field-group">
+            <div class="field-label">Pages</div>
+            <div class="field-input">422</div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">Publisher</div>
+          <div class="field-input">Crown Publishing</div>
+        </div>
+
+        <div class="two-col">
+          <div class="field-group">
+            <div class="field-label">Published</div>
+            <div class="field-input">Jun 2012</div>
+          </div>
+          <div class="field-group">
+            <div class="field-label">Date Read</div>
+            <div class="field-input">Mar 2023</div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">Description</div>
+          <div class="field-input" style="height:72px; align-items:flex-start; padding-top:12px; font-size:13px; color:var(--text2);">On a warm summer morning in North Carthage...</div>
+        </div>
+
+        <div class="toggle-row" id="toggle-row" onclick="toggleRead()">
+          <div class="toggle-info">
+            <div class="toggle-label">Mark as Read</div>
+            <div class="toggle-sublabel">Off = moves to Wish List</div>
+          </div>
+          <div class="toggle" id="toggle"></div>
+        </div>
+
+        <div class="field-group" id="rating-field">
+          <div class="field-label">Rating</div>
+          <div class="stars-input">
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <a class="submit-btn" href="book-detail.html">Save Changes</a>
+        <a class="delete-btn" href="book-list-read.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+            <path d="M10 11v6M14 11v6"/>
+            <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+          </svg>
+          Delete Book
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    const ratingField = document.getElementById('rating-field');
+    ratingField.style.display = 'none';
+    function toggleRead() {
+      const isOn = toggle.classList.toggle('on');
+      ratingField.style.display = isOn ? 'flex' : 'none';
+    }
+  </script>
+
+  <div class="jira-badge">
+    <span class="jira-tag">S7 – Edit Book</span>
+    <span class="jira-tag">S8 – Delete Book</span>
+    <span class="jira-tag">S10 – Cover Image</span>
+  </div>
+
+</body>
+</html>

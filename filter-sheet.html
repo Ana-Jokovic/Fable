@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookApp – Filter Sheet</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .dimmed-bg {
+      flex: 1;
+      background: rgba(43,35,32,0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .sheet {
+      background: var(--bg);
+      border-radius: 24px 24px 0 0;
+      padding: 0 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .sheet-handle {
+      width: 36px; height: 4px;
+      border-radius: 2px;
+      background: var(--border);
+      align-self: center;
+      margin: 12px 0 4px;
+    }
+    .sheet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sheet-title { font-size: 16px; font-weight: 700; color: var(--text); }
+    .sheet-clear { font-size: 13px; font-weight: 700; color: var(--accent); cursor: pointer; }
+    .sheet-section { padding: 16px 20px 0; }
+    .sheet-section-title {
+      font-size: 11px; font-weight: 700;
+      color: var(--text2); text-transform: uppercase;
+      letter-spacing: 0.8px; margin-bottom: 10px;
+    }
+    .chips-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      height: 32px; border-radius: 16px;
+      padding: 0 14px; font-size: 12px; font-weight: 600;
+      display: flex; align-items: center; cursor: pointer;
+    }
+    .chip.active { background: var(--accent); color: var(--bg); border: 1.5px solid var(--accent); }
+    .chip.inactive { background: var(--surface); color: var(--text2); border: 1.5px solid var(--border); }
+    .author-list { display: flex; flex-direction: column; gap: 2px; }
+    .author-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+    .author-row:last-child { border-bottom: none; }
+    .author-name { font-size: 14px; color: var(--text); }
+    .author-count { font-size: 12px; color: var(--text2); }
+    .author-check { font-size: 18px; color: var(--accent); }
+    .sheet-footer { padding: 16px 20px 0; }
+    .apply-btn {
+      height: 52px; border-radius: 14px;
+      background: var(--accent); color: var(--bg);
+      font-size: 16px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(122,46,46,0.35);
+    }
+    .apply-btn:hover { background: #8B3535; }
+
+    /* Background screen peek */
+    .bg-peek {
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .peek-card {
+      border-radius: 12px; padding: 10px 12px;
+      display: flex; gap: 10px; align-items: center;
+      background: var(--surface); border: 1px solid var(--border);
+      opacity: 0.5;
+    }
+    .peek-cover { width: 36px; height: 52px; border-radius: 5px; background: var(--nav); flex-shrink: 0; }
+    .peek-lines { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    .peek-line { height: 8px; border-radius: 4px; background: var(--border); }
+  </style>
+</head>
+<body>
+
+  <div class="screen-label">S13 · S14 · S15 – Filter Sheet</div>
+
+  <div class="phone">
+
+    <div class="status-bar">
+      <span>9:41</span>
+      <span>●●● 🔋</span>
+    </div>
+
+    <div class="nav-bar">
+      <div class="nav-title">My Books</div>
+      <div class="nav-icons">
+        <a class="nav-icon" href="sort-sheet.html">⇅</a>
+        <span class="nav-icon" style="color:var(--gold);">⊟</span>
+      </div>
+    </div>
+
+    <div class="dimmed-bg">
+
+      <!-- Background peek -->
+      <div class="bg-peek">
+        <div class="peek-card">
+          <div class="peek-cover"></div>
+          <div class="peek-lines">
+            <div class="peek-line" style="width:70%"></div>
+            <div class="peek-line" style="width:50%"></div>
+            <div class="peek-line" style="width:40%"></div>
+          </div>
+        </div>
+        <div class="peek-card">
+          <div class="peek-cover"></div>
+          <div class="peek-lines">
+            <div class="peek-line" style="width:80%"></div>
+            <div class="peek-line" style="width:55%"></div>
+            <div class="peek-line" style="width:35%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sheet -->
+      <div class="sheet">
+        <div class="sheet-handle"></div>
+
+        <div class="sheet-header">
+          <div class="sheet-title">Filter Books</div>
+          <a class="sheet-clear" href="book-list-read.html">Clear All</a>
+        </div>
+
+        <div class="sheet-section">
+          <div class="sheet-section-title">Genre</div>
+          <div class="chips-wrap">
+            <span class="chip active">Mystery ✕</span>
+            <span class="chip inactive">Sci-Fi</span>
+            <span class="chip inactive">Fantasy</span>
+            <span class="chip inactive">Fiction</span>
+            <span class="chip inactive">Thriller</span>
+            <span class="chip inactive">Biography</span>
+            <span class="chip inactive">Non-Fiction</span>
+            <span class="chip inactive">Romance</span>
+          </div>
+        </div>
+
+        <div class="sheet-section" style="margin-top:16px;">
+          <div class="sheet-section-title">Author</div>
+          <div class="author-list">
+            <div class="author-row">
+              <span class="author-name">Gillian Flynn</span>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span class="author-count">2 books</span>
+                <span class="author-check">✓</span>
+              </div>
+            </div>
+            <div class="author-row">
+              <span class="author-name">Liane Moriarty</span>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span class="author-count">1 book</span>
+                <span style="font-size:18px;color:var(--border);">○</span>
+              </div>
+            </div>
+            <div class="author-row">
+              <span class="author-name">Paula Hawkins</span>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span class="author-count">1 book</span>
+                <span style="font-size:18px;color:var(--border);">○</span>
+              </div>
+            </div>
+            <div class="author-row">
+              <span class="author-name">Tana French</span>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span class="author-count">1 book</span>
+                <span style="font-size:18px;color:var(--border);">○</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sheet-footer">
+          <a class="apply-btn" href="book-list-read.html">Apply Filters</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="jira-badge">
+    <span class="jira-tag">S13 – Filter by Genre</span>
+    <span class="jira-tag">S14 – Filter by Author</span>
+    <span class="jira-tag">S15 – Reset Filters</span>
+  </div>
+
+</body>
+</html>

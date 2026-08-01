@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S9 – Rating</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .page-header { text-align: center; margin-bottom: 32px; }
+    .page-header h1 { font-size: 22px; font-weight: 800; color: #2B2320; margin-bottom: 6px; }
+    .page-header p { font-size: 13px; color: #8A7C6C; max-width: 600px; margin: 0 auto; line-height: 1.5; }
+    .back { font-size: 13px; font-weight: 600; color: #8A7C6C; text-decoration: none; display: block; text-align: center; margin-bottom: 24px; }
+    .back:hover { color: #2B2320; }
+    .screens-row { display: flex; gap: 32px; align-items: flex-start; justify-content: center; flex-wrap: wrap; }
+    .screen-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .screen-col .phone { height: 720px; display: flex; flex-direction: column; }
+    .screen-label { font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1px; text-align: center; max-width: 200px; }
+    .arrow { font-size: 28px; color: #C9A227; align-self: center; margin-top: 80px; }
+
+    /* Form */
+    .form-scroll { flex: 1; overflow-y: auto; background: var(--bg); }
+    .form-body { padding: 20px; display: flex; flex-direction: column; gap: 18px; }
+    .field-group { display: flex; flex-direction: column; gap: 6px; }
+    .field-label { font-size: 11px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.8px; }
+    .field-label span { color: var(--accent); margin-left: 2px; }
+    .field-input {
+      height: 46px; border-radius: 12px;
+      background: var(--surface); border: 1.5px solid var(--border);
+      padding: 0 14px; font-size: 15px; color: var(--text);
+      display: flex; align-items: center;
+    }
+    .field-input.placeholder { color: var(--text2); }
+    .tags-input {
+      min-height: 46px; border-radius: 12px;
+      background: var(--surface); border: 1.5px solid var(--border);
+      padding: 8px 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+    }
+    .tag { height: 28px; border-radius: 8px; background: var(--surface2); border: 1px solid var(--border); padding: 0 10px; font-size: 13px; color: var(--text); display: flex; align-items: center; gap: 6px; }
+    .tag-remove { font-size: 14px; color: var(--text2); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .toggle-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 12px; padding: 12px 14px;
+    }
+    .toggle-info { display: flex; flex-direction: column; gap: 2px; }
+    .toggle-label { font-size: 14px; font-weight: 600; color: var(--text); }
+    .toggle-sublabel { font-size: 11px; color: var(--text2); }
+    .toggle { width: 44px; height: 26px; border-radius: 13px; background: var(--border); position: relative; flex-shrink: 0; }
+    .toggle::after { content: ''; position: absolute; left: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--bg); }
+    .toggle.on { background: var(--nav); }
+    .toggle.on::after { left: 21px; }
+    .stars-input { display: flex; gap: 6px; }
+    .star { font-size: 28px; }
+    .star.filled { color: var(--gold); }
+    .star.empty { color: var(--border); }
+    .section-divider { height: 1px; background: var(--border); }
+    .submit-btn {
+      height: 52px; border-radius: 14px;
+      background: var(--accent); color: var(--bg);
+      font-size: 16px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; box-shadow: 0 4px 16px rgba(122,46,46,0.35);
+      cursor: default;
+    }
+    .helper { font-size: 11px; color: var(--text2); text-align: center; }
+    .helper span { color: var(--accent); }
+
+    /* Book detail */
+    .detail-body { flex: 1; padding: 24px 20px; display: flex; flex-direction: column; gap: 12px; background: var(--bg); overflow-y: auto; }
+    .detail-title { font-size: 22px; font-weight: 800; color: var(--text); line-height: 1.2; }
+    .detail-author { font-size: 14px; color: var(--text2); margin-top: 2px; }
+    .detail-stars { font-size: 22px; color: var(--gold); letter-spacing: 3px; }
+    .detail-stars .empty { color: var(--border); }
+    .detail-divider { height: 1px; background: var(--border); }
+    .detail-actions { display: flex; gap: 10px; padding: 12px 20px 20px; background: var(--bg); flex-shrink: 0; }
+    .btn-edit { flex: 1; height: 48px; border-radius: 14px; background: var(--accent); color: var(--bg); font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 16px rgba(122,46,46,0.3); }
+    .btn-delete { width: 48px; height: 48px; border-radius: 14px; background: transparent; color: var(--accent); display: flex; align-items: center; justify-content: center; text-decoration: none; }
+
+    /* AC box */
+    .ac-box { background: #F7F1E6; border: 1px solid #E4D9C4; border-radius: 12px; padding: 16px 20px; max-width: 1100px; width: 100%; }
+    .ac-box h3 { font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .ac-row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .ac-col { flex: 1; min-width: 160px; }
+    .ac-col-title { font-size: 11px; font-weight: 700; color: #2B2320; margin-bottom: 6px; }
+    .ac-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .ac-col li { font-size: 12px; color: #2B2320; line-height: 1.5; padding-left: 16px; position: relative; }
+    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #1B4332; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <a class="back" href="stories.html">← Back to Stories</a>
+
+  <div class="page-header">
+    <h1>S9 – Rating</h1>
+    <p>As a user, I want to rate a book with 1 to 5 stars, so that I can quickly remember how much I enjoyed it.</p>
+  </div>
+
+  <div class="screens-row">
+
+    <!-- Screen 1: Add Book – toggle OFF, no rating -->
+    <div class="screen-col">
+      <div class="screen-label">1 · Add Book – Toggle OFF</div>
+      <div class="phone">
+        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-bar">
+          <a class="nav-back" href="#">Cancel</a>
+          <div class="nav-title">Add Book</div>
+          <div style="width:48px;"></div>
+        </div>
+        <div class="form-scroll">
+          <div class="form-body">
+            <div class="field-group">
+              <div class="field-label">Title <span>*</span></div>
+              <div class="field-input">Gone Girl</div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Authors <span>*</span></div>
+              <div class="tags-input">
+                <div class="tag">Gillian Flynn <span class="tag-remove">×</span></div>
+              </div>
+            </div>
+            <div class="two-col">
+              <div class="field-group">
+                <div class="field-label">Genre</div>
+                <div class="field-input">Mystery</div>
+              </div>
+              <div class="field-group">
+                <div class="field-label">Pages</div>
+                <div class="field-input">422</div>
+              </div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Publisher</div>
+              <div class="field-input">Crown Publishing</div>
+            </div>
+            <div class="two-col">
+              <div class="field-group">
+                <div class="field-label">Published</div>
+                <div class="field-input">Jun 2012</div>
+              </div>
+              <div class="field-group">
+                <div class="field-label">Date Read</div>
+                <div class="field-input placeholder">Select...</div>
+              </div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-info">
+                <div class="toggle-label">Mark as Read</div>
+                <div class="toggle-sublabel">Off = adds to Wish List</div>
+              </div>
+              <div class="toggle"></div>
+            </div>
+            <div class="section-divider"></div>
+            <a class="submit-btn" href="#">Save Book</a>
+            <div class="helper">Fields marked with <span>*</span> are required</div>
+          </div>
+        </div>
+      </div>
+      <div class="jira-badge"><span class="jira-tag">S9 – Toggle OFF</span></div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <!-- Screen 2: Add Book – toggle ON, rating appears -->
+    <div class="screen-col">
+      <div class="screen-label">2 · Add Book – Toggle ON, rating appears</div>
+      <div class="phone">
+        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-bar">
+          <a class="nav-back" href="#">Cancel</a>
+          <div class="nav-title">Add Book</div>
+          <div style="width:48px;"></div>
+        </div>
+        <div class="form-scroll">
+          <div class="form-body">
+            <div class="field-group">
+              <div class="field-label">Title <span>*</span></div>
+              <div class="field-input">Gone Girl</div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Authors <span>*</span></div>
+              <div class="tags-input">
+                <div class="tag">Gillian Flynn <span class="tag-remove">×</span></div>
+              </div>
+            </div>
+            <div class="two-col">
+              <div class="field-group">
+                <div class="field-label">Genre</div>
+                <div class="field-input">Mystery</div>
+              </div>
+              <div class="field-group">
+                <div class="field-label">Pages</div>
+                <div class="field-input">422</div>
+              </div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Publisher</div>
+              <div class="field-input">Crown Publishing</div>
+            </div>
+            <div class="two-col">
+              <div class="field-group">
+                <div class="field-label">Published</div>
+                <div class="field-input">Jun 2012</div>
+              </div>
+              <div class="field-group">
+                <div class="field-label">Date Read</div>
+                <div class="field-input">Mar 2023</div>
+              </div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-info">
+                <div class="toggle-label">Mark as Read</div>
+                <div class="toggle-sublabel">Off = adds to Wish List</div>
+              </div>
+              <div class="toggle on"></div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Rating</div>
+              <div class="stars-input">
+                <span class="star empty">★</span>
+                <span class="star empty">★</span>
+                <span class="star empty">★</span>
+                <span class="star empty">★</span>
+                <span class="star empty">★</span>
+              </div>
+            </div>
+            <div class="section-divider"></div>
+            <a class="submit-btn" href="#">Save Book</a>
+            <div class="helper">Fields marked with <span>*</span> are required</div>
+          </div>
+        </div>
+      </div>
+      <div class="jira-badge"><span class="jira-tag">S9 – Toggle ON</span></div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <!-- Screen 3: Book Detail with 4 stars -->
+    <div class="screen-col">
+      <div class="screen-label">3 · Book Detail – 4 stars</div>
+      <div class="phone">
+        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-bar">
+          <a class="nav-back" href="#">‹ Back</a>
+          <div class="nav-title">Detail</div>
+          <a class="nav-action" href="#">Edit</a>
+        </div>
+        <div class="detail-body">
+          <div>
+            <div class="detail-title">Gone Girl</div>
+            <div class="detail-author">Gillian Flynn</div>
+          </div>
+          <div class="detail-stars">★★★★<span class="empty">★</span></div>
+          <div class="detail-divider"></div>
+        </div>
+        <div class="detail-actions">
+          <a class="btn-edit" href="#">✎ Edit Book</a>
+          <a class="btn-delete" href="#">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+              <path d="M10 11v6M14 11v6"/>
+              <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="jira-badge"><span class="jira-tag">S9 – Detail 4 stars</span></div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <!-- Screen 4: Edit Book – all fields + pre-filled rating -->
+    <div class="screen-col">
+      <div class="screen-label">4 · Edit Book – pre-filled rating</div>
+      <div class="phone">
+        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-bar">
+          <a class="nav-back" href="#">Cancel</a>
+          <div class="nav-title">Edit Book</div>
+          <div style="width:48px;"></div>
+        </div>
+        <div class="form-scroll">
+          <div class="form-body">
+            <div class="field-group">
+              <div class="field-label">Title <span>*</span></div>
+              <div class="field-input">Gone Girl</div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Authors <span>*</span></div>
+              <div class="tags-input">
+                <div class="tag">Gillian Flynn <span class="tag-remove">×</span></div>
+              </div>
+            </div>
+            <div class="two-col">
+              <div class="field-group">
+                <div class="field-label">Genre</div>
+                <div class="field-input">Mystery</div>
+              </div>
+              <div class="field-group">
+                <div class="field-label">Pages</div>
+                <div class="field-input">422</div>
+              </div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Publisher</div>
+              <div class="field-input">Crown Publishing</div>
+            </div>
+            <div class="two-col">
+              <div class="field-group">
+                <div class="field-label">Published</div>
+                <div class="field-input">Jun 2012</div>
+              </div>
+              <div class="field-group">
+                <div class="field-label">Date Read</div>
+                <div class="field-input">Mar 2023</div>
+              </div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-info">
+                <div class="toggle-label">Mark as Read</div>
+                <div class="toggle-sublabel">Off = moves to Wish List</div>
+              </div>
+              <div class="toggle on"></div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Rating</div>
+              <div class="stars-input">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star empty">★</span>
+              </div>
+            </div>
+            <div class="section-divider"></div>
+            <a class="submit-btn" href="#">Save Changes</a>
+            <div class="helper">Fields marked with <span>*</span> are required</div>
+          </div>
+        </div>
+      </div>
+      <div class="jira-badge"><span class="jira-tag">S9 – Edit pre-filled</span></div>
+    </div>
+
+  </div>
+
+  <!-- AC box -->
+  <div style="display:flex; justify-content:center; margin-top: 32px; padding: 0 20px;">
+    <div class="ac-box">
+      <h3>Acceptance Criteria</h3>
+      <div class="ac-row">
+        <div class="ac-col">
+          <div class="ac-col-title">Toggle OFF</div>
+          <ul>
+            <li>Rating field not visible</li>
+            <li>Book saved to Wish List</li>
+          </ul>
+        </div>
+        <div class="ac-col">
+          <div class="ac-col-title">Toggle ON</div>
+          <ul>
+            <li>Rating field appears below toggle</li>
+            <li>0 stars selected by default</li>
+            <li>Tapping a star fills up to that star</li>
+            <li>Rating saved with the book</li>
+          </ul>
+        </div>
+        <div class="ac-col">
+          <div class="ac-col-title">Book Detail</div>
+          <ul>
+            <li>Saved rating displayed as stars</li>
+            <li>Filled stars gold, empty grey</li>
+          </ul>
+        </div>
+        <div class="ac-col">
+          <div class="ac-col-title">Edit Book</div>
+          <ul>
+            <li>All fields pre-filled</li>
+            <li>Toggle ON, rating pre-filled</li>
+            <li>User can update rating</li>
+            <li>Save Changes persists new rating</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

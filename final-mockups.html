@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fable – Final Mockups</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #D6CFC4;
+      min-height: 100vh;
+      padding: 48px 32px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .back { font-size: 13px; font-weight: 600; color: #8A7C6C; text-decoration: none; }
+    .back:hover { color: #2B2320; }
+    header h1 { font-size: 24px; font-weight: 800; color: #2B2320; }
+    .section { margin-bottom: 40px; }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A7C6C;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+      padding-left: 4px;
+    }
+    .grid { display: flex; gap: 16px; flex-wrap: wrap; }
+    .card {
+      background: #F7F1E6;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 200px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+    .card-thumb {
+      height: 140px;
+      background: #1B4332;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+    .card-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .card-title { font-size: 14px; font-weight: 700; color: #2B2320; }
+    .card-desc  { font-size: 11px; color: #8A7C6C; line-height: 1.4; }
+    .jira-tags  { display: flex; gap: 4px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
+    .jira-tag   { font-size: 9px; font-weight: 700; background: #0052CC; color: white; border-radius: 4px; padding: 2px 6px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="back" href="index.html">← Back</a>
+    <h1>Final Mockups</h1>
+  </header>
+
+  <!-- Book List -->
+  <div class="section">
+    <div class="section-title">Book List</div>
+    <div class="grid">
+
+      <a class="card" href="book-list-read.html">
+        <div class="card-thumb">📖</div>
+        <div class="card-body">
+          <div class="card-title">Book List – Read</div>
+          <div class="card-desc">Main screen with search, filter chips and sort. Read tab active.</div>
+          <div class="jira-tags">
+            <span class="jira-tag">S3</span><span class="jira-tag">S4</span>
+            <span class="jira-tag">S5</span><span class="jira-tag">S11</span>
+            <span class="jira-tag">S12</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="book-list-wishlist.html">
+        <div class="card-thumb">🔖</div>
+        <div class="card-body">
+          <div class="card-title">Book List – Wish List</div>
+          <div class="card-desc">Wish List tab active with books the user wants to read.</div>
+          <div class="jira-tags">
+            <span class="jira-tag">S8</span><span class="jira-tag">S9</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="book-list-empty.html">
+        <div class="card-thumb">✨</div>
+        <div class="card-body">
+          <div class="card-title">Book List – Empty State</div>
+          <div class="card-desc">Empty state shown when no books are logged yet.</div>
+          <div class="jira-tags"><span class="jira-tag">S1</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Book Detail -->
+  <div class="section">
+    <div class="section-title">Book Detail</div>
+    <div class="grid">
+
+      <a class="card" href="book-detail.html">
+        <div class="card-thumb">🔍</div>
+        <div class="card-body">
+          <div class="card-title">Book Detail</div>
+          <div class="card-desc">Full detail screen with all book fields, cover and rating.</div>
+          <div class="jira-tags">
+            <span class="jira-tag">S6</span><span class="jira-tag">S17</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="book-detail-wishlist.html">
+        <div class="card-thumb">🔖</div>
+        <div class="card-body">
+          <div class="card-title">Book Detail – Wish List</div>
+          <div class="card-desc">Detail screen for a book on the Wish List.</div>
+          <div class="jira-tags"><span class="jira-tag">S8</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Forms -->
+  <div class="section">
+    <div class="section-title">Forms</div>
+    <div class="grid">
+
+      <a class="card" href="add-book.html">
+        <div class="card-thumb">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F7F1E6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Add Book</div>
+          <div class="card-desc">Form for adding a new book with all fields and validation states.</div>
+          <div class="jira-tags">
+            <span class="jira-tag">S2</span><span class="jira-tag">S3</span><span class="jira-tag">S17</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="edit-book.html">
+        <div class="card-thumb">✏️</div>
+        <div class="card-body">
+          <div class="card-title">Edit Book</div>
+          <div class="card-desc">Pre-filled form for editing an existing book.</div>
+          <div class="jira-tags">
+            <span class="jira-tag">S7</span><span class="jira-tag">S10</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Sheets -->
+  <div class="section">
+    <div class="section-title">Sheets</div>
+    <div class="grid">
+
+      <a class="card" href="filter-sheet.html">
+        <div class="card-thumb">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F7F1E6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Filter Sheet</div>
+          <div class="card-desc">Bottom sheet for filtering by genre and author.</div>
+          <div class="jira-tags">
+            <span class="jira-tag">S13</span><span class="jira-tag">S14</span><span class="jira-tag">S15</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="sort-sheet.html">
+        <div class="card-thumb">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F7F1E6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+            <circle cx="9" cy="6" r="2" fill="#1B4332" stroke="#F7F1E6" stroke-width="1.5"/>
+            <circle cx="15" cy="12" r="2" fill="#1B4332" stroke="#F7F1E6" stroke-width="1.5"/>
+            <circle cx="9" cy="18" r="2" fill="#1B4332" stroke="#F7F1E6" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Sort Sheet</div>
+          <div class="card-desc">Bottom sheet for sorting the book list by different criteria.</div>
+          <div class="jira-tags"><span class="jira-tag">S16</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</body>
+</html>

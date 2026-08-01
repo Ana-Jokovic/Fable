@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S2 – Add a Book</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .page-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .page-header h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #2B2320;
+      margin-bottom: 6px;
+    }
+    .page-header p {
+      font-size: 13px;
+      color: #8A7C6C;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    .back { font-size: 13px; font-weight: 600; color: #8A7C6C; text-decoration: none; display: block; text-align: center; margin-bottom: 24px; }
+    .back:hover { color: #2B2320; }
+
+    .screens-row {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .screen-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .screen-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A7C6C;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .screen-col .phone {
+      height: 720px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Form styles */
+    .form-scroll {
+      flex: 1;
+      overflow-y: auto;
+      background: var(--bg);
+    }
+    .form-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .field-group { display: flex; flex-direction: column; gap: 6px; }
+    .field-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .field-label span { color: var(--accent); margin-left: 2px; }
+    .field-input {
+      height: 46px;
+      border-radius: 12px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      padding: 0 14px;
+      font-size: 15px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+    }
+    .field-input.placeholder { color: var(--text2); }
+    .field-input.error { border-color: var(--accent); background: #FDF5F5; }
+    .field-error { font-size: 11px; color: var(--accent); }
+    .submit-btn {
+      height: 52px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(122,46,46,0.35);
+      margin-top: 8px;
+      cursor: default;
+    }
+    .helper { font-size: 11px; color: var(--text2); text-align: center; }
+    .helper span { color: var(--accent); }
+
+    /* Read list (entry point) */
+    .empty-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 40px;
+      background: var(--bg);
+      gap: 20px;
+    }
+    .empty-title { font-size: 18px; font-weight: 700; color: var(--text); text-align: center; }
+    .empty-subtitle { font-size: 14px; color: var(--text2); text-align: center; line-height: 1.6; }
+    .empty-cta {
+      height: 48px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(122,46,46,0.35);
+      margin-top: 8px;
+      cursor: default;
+    }
+
+    /* AC box */
+    .ac-box {
+      background: #F7F1E6;
+      border: 1px solid #E4D9C4;
+      border-radius: 12px;
+      padding: 16px 20px;
+      max-width: 860px;
+      width: 100%;
+    }
+    .ac-box h3 {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A7C6C;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .ac-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .ac-col { flex: 1; min-width: 200px; }
+    .ac-col-title { font-size: 11px; font-weight: 700; color: #2B2320; margin-bottom: 6px; }
+    .ac-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .ac-col li {
+      font-size: 12px;
+      color: #2B2320;
+      line-height: 1.5;
+      padding-left: 16px;
+      position: relative;
+    }
+    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #1B4332; font-weight: 700; }
+    .note { font-size: 11px; color: #8A7C6C; font-style: italic; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <a class="back" href="stories.html">← Back to Stories</a>
+
+  <div class="page-header">
+    <h1>S2 – Add a Book</h1>
+    <p>As a user, I want to add a new book to my list of read books, so that I can keep track of everything I've read.</p>
+  </div>
+
+  <div class="screens-row">
+
+    <!-- Screen 1: Home with FAB -->
+    <div class="screen-col">
+      <div class="screen-label">1 · Home screen</div>
+      <div class="phone">
+        <div class="status-bar">
+          <span>9:41</span><span>●●● 🔋</span>
+        </div>
+        <div class="nav-bar">
+          <div class="nav-title">My Books</div>
+        </div>
+        <div class="empty-container">
+          <svg width="180" height="155" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="88" width="100" height="14" rx="4" fill="#1B4332"/>
+            <rect x="22" y="86" width="96" height="5" rx="2" fill="#2D5A3D"/>
+            <rect x="28" y="70" width="84" height="20" rx="4" fill="#7A2E2E"/>
+            <rect x="30" y="68" width="80" height="5" rx="2" fill="#8B3535"/>
+            <rect x="35" y="52" width="70" height="20" rx="4" fill="#C9A227"/>
+            <rect x="37" y="50" width="66" height="5" rx="2" fill="#D4A830"/>
+            <circle cx="70" cy="62" r="7" fill="#F7F1E6" opacity="0.9"/>
+            <circle cx="67.5" cy="60.5" r="1" fill="#2B2320"/>
+            <circle cx="72.5" cy="60.5" r="1" fill="#2B2320"/>
+            <path d="M67 64 Q70 67 73 64" stroke="#2B2320" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <text x="15" y="45" font-size="12" fill="#C9A227" opacity="0.6">✦</text>
+            <text x="118" y="70" font-size="10" fill="#C9A227" opacity="0.5">✦</text>
+          </svg>
+          <div class="empty-title">Your stack awaits</div>
+          <div class="empty-subtitle">Every great shelf starts with one book. What did you read last?</div>
+          <a class="empty-cta" href="#">Add a book</a>
+        </div>
+      </div>
+      <div class="jira-badge"><span class="jira-tag">S2 – Entry point</span></div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <!-- Screen 2: Add Book form (empty) -->
+    <div class="screen-col">
+      <div class="screen-label">2 · Add Book form</div>
+      <div class="phone">
+        <div class="status-bar">
+          <span>9:41</span><span>●●● 🔋</span>
+        </div>
+        <div class="nav-bar">
+          <a class="nav-back" href="#">Cancel</a>
+          <div class="nav-title">Add Book</div>
+          <div style="width:48px;"></div>
+        </div>
+        <div class="form-scroll">
+          <div class="form-body">
+
+            <div class="field-group">
+              <div class="field-label">Title <span>*</span></div>
+              <div class="field-input placeholder">Enter book title...</div>
+            </div>
+
+            <div class="field-group">
+              <div class="field-label">Author <span>*</span></div>
+              <div class="field-input placeholder">Enter author name...</div>
+            </div>
+
+            <a class="submit-btn" href="#">Save Book</a>
+            <div class="helper">Fields marked with <span>*</span> are required</div>
+
+          </div>
+        </div>
+      </div>
+      <div class="jira-badge"><span class="jira-tag">S2 – Add Book form</span></div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <!-- Screen 3: Validation error -->
+    <div class="screen-col">
+      <div class="screen-label">3 · Validation error</div>
+      <div class="phone">
+        <div class="status-bar">
+          <span>9:41</span><span>●●● 🔋</span>
+        </div>
+        <div class="nav-bar">
+          <a class="nav-back" href="#">Cancel</a>
+          <div class="nav-title">Add Book</div>
+          <div style="width:48px;"></div>
+        </div>
+        <div class="form-scroll">
+          <div class="form-body">
+
+            <div class="field-group">
+              <div class="field-label">Title <span>*</span></div>
+              <div class="field-input error placeholder">Enter book title...</div>
+              <div class="field-error">Title is required</div>
+            </div>
+
+            <div class="field-group">
+              <div class="field-label">Author <span>*</span></div>
+              <div class="field-input error placeholder">Enter author name...</div>
+              <div class="field-error">Author is required</div>
+            </div>
+
+            <a class="submit-btn" href="#" style="opacity:0.5; cursor:default;">Save Book</a>
+            <div class="helper">Fields marked with <span>*</span> are required</div>
+
+          </div>
+        </div>
+      </div>
+      <div class="jira-badge"><span class="jira-tag">S2 – Validation error</span></div>
+    </div>
+
+  </div>
+
+  <!-- AC box -->
+  <div style="display:flex; justify-content:center; margin-top: 32px; padding: 0 20px;">
+    <div class="ac-box">
+      <h3>Acceptance Criteria</h3>
+      <div class="ac-row">
+        <div class="ac-col">
+          <div class="ac-col-title">Open form</div>
+          <ul>
+            <li>User is on home screen</li>
+            <li>Taps FAB "+" button</li>
+            <li>Add Book form opens</li>
+            <li>Nav bar shows "Cancel" and "Add Book" title</li>
+          </ul>
+        </div>
+        <div class="ac-col">
+          <div class="ac-col-title">Save book</div>
+          <ul>
+            <li>Title and Author are filled in</li>
+            <li>User taps "Save Book"</li>
+            <li>Book is saved and appears in the list</li>
+            <li>Form closes</li>
+          </ul>
+        </div>
+        <div class="ac-col">
+          <div class="ac-col-title">Validation error</div>
+          <ul>
+            <li>User taps "Save Book" with empty fields</li>
+            <li>Error shown below each required field</li>
+            <li>Save button is disabled</li>
+            <li>Book is not saved</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Note: This story covers Title, Author, Save Book button, Cancel button and required fields label only. No other fields.</p>
+    </div>
+  </div>
+
+</body>
+</html>
