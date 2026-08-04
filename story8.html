@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S8 – Tab Bar</title>
+  <title>FBI-10 – Tab Bar</title>
   <link rel="stylesheet" href="theme.css">
   <style>
-    .page-header { text-align: center; margin-bottom: 32px; }
-    .page-header h1 { font-size: 22px; font-weight: 800; color: #2B2320; margin-bottom: 6px; }
-    .page-header p { font-size: 13px; color: #8A7C6C; max-width: 600px; margin: 0 auto; line-height: 1.5; }
-    .back { font-size: 13px; font-weight: 600; color: #8A7C6C; text-decoration: none; display: block; text-align: center; margin-bottom: 24px; }
-    .back:hover { color: #2B2320; }
+    .page-header { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 32px; }
+    .page-header h1 { font-size: 22px; font-weight: 800; color: var(--text); }
+    .page-header p { font-size: 13px; color: #8A7C6C; max-width: 600px; text-align: center; line-height: 1.5; }
 
     .screens-row { display: flex; gap: 32px; align-items: flex-start; justify-content: center; flex-wrap: wrap; }
     .screen-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
@@ -93,18 +91,24 @@
     .ac-box h3 { font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
     .ac-row { display: flex; gap: 24px; flex-wrap: wrap; }
     .ac-col { flex: 1; min-width: 160px; }
-    .ac-col-title { font-size: 11px; font-weight: 700; color: #2B2320; margin-bottom: 6px; }
+    .ac-col-title { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .ac-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-    .ac-col li { font-size: 12px; color: #2B2320; line-height: 1.5; padding-left: 16px; position: relative; }
-    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #1B4332; font-weight: 700; }
+    .ac-col li { font-size: 12px; color: var(--text); line-height: 1.5; padding-left: 16px; position: relative; }
+    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #7f00ff; font-weight: 700; }
   </style>
 </head>
 <body>
 
-  <a class="back" href="stories.html">← Back to Stories</a>
-
   <div class="page-header">
-    <h1>S8 – Tab Bar (Read / Wish List)</h1>
+    <div class="header-top">
+      <a class="page-back" href="story7.html">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="stories.html">Stories</a>
+      </div>
+      <a class="page-next" href="story9.html">Next →</a>
+    </div>
+    <h1>FBI-10 – Tab Bar (Read / Wish List)</h1>
     <p>As a user, I want to see my books organised into two separate tabs — Read and Wish List, so that I can easily distinguish between books I've already read and books I want to read.</p>
   </div>
 
@@ -145,7 +149,7 @@
           </div>
         </div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S8 – Toggle ON</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-10" target="_blank">FBI-10 – Toggle ON</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -174,7 +178,7 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S8 – Read tab</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-10" target="_blank">FBI-10 – Read tab</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -193,16 +197,16 @@
         </div>
         <div class="empty-container">
           <svg width="140" height="120" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="20" y="88" width="100" height="14" rx="4" fill="#1B4332"/>
-            <rect x="22" y="86" width="96" height="5" rx="2" fill="#2D5A3D"/>
+            <rect x="20" y="88" width="100" height="14" rx="4" fill="#7f00ff"/>
+            <rect x="22" y="86" width="96" height="5" rx="2" fill="#5a1adb"/>
             <rect x="28" y="70" width="84" height="20" rx="4" fill="#7A2E2E"/>
-            <rect x="30" y="68" width="80" height="5" rx="2" fill="#8B3535"/>
+            <rect x="30" y="68" width="80" height="5" rx="2" fill="var(--accent-hover)"/>
             <rect x="35" y="52" width="70" height="20" rx="4" fill="#C9A227"/>
             <rect x="37" y="50" width="66" height="5" rx="2" fill="#D4A830"/>
             <circle cx="70" cy="62" r="7" fill="#F7F1E6" opacity="0.9"/>
-            <circle cx="67.5" cy="60.5" r="1" fill="#2B2320"/>
-            <circle cx="72.5" cy="60.5" r="1" fill="#2B2320"/>
-            <path d="M67 64 Q70 67 73 64" stroke="#2B2320" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <circle cx="67.5" cy="60.5" r="1" fill="var(--text)"/>
+            <circle cx="72.5" cy="60.5" r="1" fill="var(--text)"/>
+            <path d="M67 64 Q70 67 73 64" stroke="var(--text)" stroke-width="1" fill="none" stroke-linecap="round"/>
             <text x="15" y="45" font-size="12" fill="#C9A227" opacity="0.6">✦</text>
             <text x="118" y="70" font-size="10" fill="#C9A227" opacity="0.5">✦</text>
           </svg>
@@ -211,7 +215,7 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S8 – Wish List empty</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-10" target="_blank">FBI-10 – Wish List empty</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -251,7 +255,7 @@
           </div>
         </div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S8 – Toggle OFF</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-10" target="_blank">FBI-10 – Toggle OFF</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -280,7 +284,7 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S8 – Wish List tab</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-10" target="_blank">FBI-10 – Wish List tab</a></div>
     </div>
 
   </div>

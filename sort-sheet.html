@@ -45,7 +45,8 @@
     .sort-name.active { font-weight: 700; color: var(--accent); }
     .sort-dir { font-size: 11px; color: var(--text2); }
     .sort-right { display: flex; align-items: center; gap: 8px; }
-    .sort-check { font-size: 20px; color: var(--accent); }
+    .sort-check { font-size: 20px; color: var(--accent); visibility: hidden; }
+    .sort-row.active .sort-check { visibility: visible; }
     .dir-toggle {
       display: flex; border-radius: 8px; overflow: hidden;
       border: 1px solid var(--border);
@@ -56,7 +57,7 @@
       font-size: 13px; font-weight: 700; cursor: pointer;
       background: var(--surface); color: var(--text2);
     }
-    .dir-btn.active { background: var(--accent); color: var(--bg); }
+    .dir-btn.active { background: var(--nav); color: var(--bg); }
 
     /* Background peek */
     .bg-peek { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
@@ -72,10 +73,20 @@
 </head>
 <body>
 
-  <div class="screen-label">S16 – Sort Sheet</div>
+  <div class="page-header">
+    <div class="header-top">
+      <a class="page-back" href="filter-sheet.html">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="final-mockups.html">Mockups</a>
+      </div>
+    </div>
+  </div>
+  <div class="screen-label">Sort Sheet</div>
 
   <div class="phone">
 
+    <div class="nav-header">
     <div class="status-bar">
       <span>9:41</span>
       <span>●●● 🔋</span>
@@ -87,6 +98,7 @@
         <span class="nav-icon" style="color:var(--gold);">⇅</span>
         <a class="nav-icon" href="filter-sheet.html">⊟</a>
       </div>
+    </div>
     </div>
 
     <div class="dimmed-bg">
@@ -141,9 +153,10 @@
             </div>
             <div class="sort-right">
               <div class="dir-toggle">
-                <div class="dir-btn active">↑</div>
-                <div class="dir-btn">↓</div>
+                <div class="dir-btn active">↓</div>
+                <div class="dir-btn">↑</div>
               </div>
+              <span class="sort-check">✓</span>
             </div>
           </div>
 
@@ -157,6 +170,7 @@
                 <div class="dir-btn active">↓</div>
                 <div class="dir-btn">↑</div>
               </div>
+              <span class="sort-check">✓</span>
             </div>
           </div>
 
@@ -170,6 +184,7 @@
                 <div class="dir-btn active">↓</div>
                 <div class="dir-btn">↑</div>
               </div>
+              <span class="sort-check">✓</span>
             </div>
           </div>
 
@@ -183,6 +198,7 @@
                 <div class="dir-btn active">↓</div>
                 <div class="dir-btn">↑</div>
               </div>
+              <span class="sort-check">✓</span>
             </div>
           </div>
 
@@ -193,7 +209,7 @@
   </div>
 
   <div class="jira-badge">
-    <span class="jira-tag">S16 – Sort List</span>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-15" target="_blank">FBI-15 – Sort List</a>
   </div>
 
 </body>

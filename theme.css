@@ -1,19 +1,39 @@
 /* ================================
    BookApp – Shared Theme
-   ================================ */
+   ================================
+
+   COLOR PALETTE
+   ─────────────────────────────────
+   --nav        #3622b1   Book cover placeholder, nav tekst boja (solid)
+   nav-header   #35208f → #5a1adb → #7f00ff   Nav gradient (status bar + nav bar + top tabs)
+   --bg         #f0ebff   Glavni background screena, tekst na tamnim površinama
+   --surface    #ffffff   Book kartice, modali, bottom sheets
+   --surface2   #e8e0ff   Search input, neaktivni chipovi, cover picker
+   --text       #0b1026   Naslovi knjiga, primarne labele, sav glavni tekst
+   --text2      #7c6fa0   Autori, subtitles, placeholderi, sekundarni opisi
+   --accent     #ac8c25   FAB, aktivni chipovi, CTA buttoni, filter dugmad, tab count badge
+   --gold       #ac8c25   Zvjezdice za ocjenu, tab indikator, eyebrow labele žanra, nav akcije
+   --border     #c4b5fd   Obrubi kartica, divajderi, chevron ikone, neaktivni elementi
+   body bg      #18181f   Pozadina van telefona u prototypeu
+   ─────────────────────────────────
+*/
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --nav:        #1B4332;
-  --bg:         #F7F1E6;
-  --surface:    #FFFFFF;
-  --surface2:   #EFE6D6;
-  --text:       #2B2320;
-  --text2:      #8A7C6C;
-  --accent:     #7A2E2E;
-  --gold:       #C9A227;
-  --border:     #E4D9C4;
+  --nav:        #5b21b6;
+  --nav-gradient: linear-gradient(135deg, #0f0c3d 0%, #2d1b8e 50%, #5b21b6 100%);
+  --bg:         #f0ebff;
+  --canvas:     #18181f;
+  --surface:    #faf9ff;
+  --surface2:   #e8e0ff;
+  --text:       #0b1026;
+  --text2:      #7c6fa0;
+  --accent:     #a88c2c;
+  --accent-hover: #7a6520;
+  --gold:       #C4AE70;
+  --border:     #c4b5fd;
+  --badge:      rgba(255,255,255,0.2);
 }
 
 body {
@@ -41,10 +61,16 @@ body {
   min-height: 720px;
 }
 
+/* Nav header — gradient wrapper for status-bar + nav-bar + top-tabs */
+.nav-header {
+  background: var(--nav-gradient);
+  flex-shrink: 0;
+}
+
 /* Status bar */
 .status-bar {
   height: 44px;
-  background: var(--nav);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,12 +84,12 @@ body {
 /* Nav bar */
 .nav-bar {
   height: 52px;
-  background: var(--nav);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: none;
   flex-shrink: 0;
 }
 
@@ -74,13 +100,14 @@ body {
 }
 
 .nav-back {
-  font-size: 14px;
-  color: rgba(247,241,230,0.75);
+  font-size: 22px;
+  font-weight: 300;
+  color: rgba(240,235,255,0.75);
   cursor: pointer;
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 4px;
+  line-height: 1;
 }
 
 .nav-back:hover { color: var(--bg); }
@@ -88,7 +115,7 @@ body {
 .nav-action {
   font-size: 14px;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--accent);
   cursor: pointer;
   text-decoration: none;
 }
@@ -113,7 +140,7 @@ body {
 /* Top tabs */
 .top-tabs {
   display: flex;
-  background: var(--nav);
+  background: transparent;
   flex-shrink: 0;
 }
 
@@ -149,7 +176,8 @@ body {
 
 .tab-count {
   font-size: 10px;
-  background: var(--accent);
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
   color: var(--bg);
   border-radius: 8px;
   padding: 1px 6px;
@@ -334,13 +362,13 @@ body {
   justify-content: center;
   font-size: 28px;
   font-weight: 300;
-  box-shadow: 0 4px 16px rgba(122,46,46,0.4);
+  box-shadow: 0 4px 16px rgba(168,140,44,0.4);
   cursor: pointer;
   text-decoration: none;
   line-height: 1;
 }
 
-.fab:hover { background: #8B3535; }
+.fab:hover { background: var(--accent-hover); }
 
 /* Screen label (outside phone) */
 .screen-label {
@@ -350,6 +378,82 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
+}
+
+/* Page header (outside phone) — back button + Fable icon */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 375px;
+}
+
+.page-back {
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8A7C6C;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-back:hover { color: #2B2320; }
+
+.page-next {
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8A7C6C;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-next:hover { color: #2B2320; }
+
+.page-icon-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-icon-wrap .page-stories {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8A7C6C;
+  text-decoration: none;
+}
+
+.page-icon-wrap .page-stories:hover { color: #2B2320; }
+
+.page-icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.page-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Jira badge */
@@ -367,4 +471,10 @@ body {
   color: white;
   border-radius: 4px;
   padding: 2px 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.jira-tag:hover {
+  background: #0747A6;
 }

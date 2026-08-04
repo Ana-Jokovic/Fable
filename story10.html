@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S10 – Cover Image</title>
+  <title>FBI-12 – Cover Image</title>
   <link rel="stylesheet" href="theme.css">
   <style>
-    .page-header { text-align: center; margin-bottom: 32px; }
-    .page-header h1 { font-size: 22px; font-weight: 800; color: #2B2320; margin-bottom: 6px; }
-    .page-header p { font-size: 13px; color: #8A7C6C; max-width: 600px; margin: 0 auto; line-height: 1.5; }
-    .back { font-size: 13px; font-weight: 600; color: #8A7C6C; text-decoration: none; display: block; text-align: center; margin-bottom: 24px; }
-    .back:hover { color: #2B2320; }
+    .page-header { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 32px; }
+    .page-header h1 { font-size: 22px; font-weight: 800; color: var(--text); }
+    .page-header p { font-size: 13px; color: #8A7C6C; max-width: 600px; text-align: center; line-height: 1.5; }
     .screens-row { display: flex; gap: 32px; align-items: flex-start; justify-content: center; flex-wrap: wrap; }
     .screen-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .screen-col .phone { height: 720px; display: flex; flex-direction: column; }
@@ -149,20 +147,26 @@
     .ac-box h3 { font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
     .ac-row { display: flex; gap: 24px; flex-wrap: wrap; }
     .ac-col { flex: 1; min-width: 160px; }
-    .ac-col-title { font-size: 11px; font-weight: 700; color: #2B2320; margin-bottom: 6px; }
+    .ac-col-title { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .ac-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-    .ac-col li { font-size: 12px; color: #2B2320; line-height: 1.5; padding-left: 16px; position: relative; }
-    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #1B4332; font-weight: 700; }
+    .ac-col li { font-size: 12px; color: var(--text); line-height: 1.5; padding-left: 16px; position: relative; }
+    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #7f00ff; font-weight: 700; }
     .ac-col li.out { color: #8A7C6C; }
     .ac-col li.out::before { content: '✕'; color: #8A7C6C; }
   </style>
 </head>
 <body>
 
-  <a class="back" href="stories.html">← Back to Stories</a>
-
   <div class="page-header">
-    <h1>S10 – Cover Image</h1>
+    <div class="header-top">
+      <a class="page-back" href="story9.html">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="stories.html">Stories</a>
+      </div>
+      <a class="page-next" href="story11.html">Next →</a>
+    </div>
+    <h1>FBI-12 – Cover Image</h1>
     <p>As a user, I want to attach a cover image to a book, so that my list is more visual and I can recognise books at a glance without reading the title.</p>
   </div>
 
@@ -243,7 +247,7 @@
           </div>
         </div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S10 – No cover</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12 – No cover</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -323,7 +327,7 @@
           </div>
         </div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S10 – Cover selected</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12 – Cover selected</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -374,7 +378,7 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S10 – List with covers</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12 – List with covers</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -385,7 +389,7 @@
       <div class="phone">
         <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
-          <a class="nav-back" href="#">‹ Back</a>
+          <a class="nav-back" href="#">‹</a>
           <div class="nav-title">Detail</div>
           <a class="nav-action" href="#">Edit</a>
         </div>
@@ -428,7 +432,7 @@
           </a>
         </div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S10 – Detail with cover</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12 – Detail with cover</a></div>
     </div>
 
   </div>

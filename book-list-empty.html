@@ -43,14 +43,26 @@
       box-shadow: 0 4px 16px rgba(122,46,46,0.35);
       margin-top: 8px;
     }
-    .empty-cta:hover { background: #8B3535; }
+    .empty-cta:hover { background: var(--accent-hover); }
   </style>
 </head>
 <body>
 
-  <div class="screen-label">S1 – Empty State (Read Tab)</div>
+  <div class="page-header">
+    <div class="header-top">
+      <a class="page-back" href="book-list-wishlist.html">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="final-mockups.html">Mockups</a>
+      </div>
+      <a class="page-next" href="book-detail.html">Next →</a>
+    </div>
+  </div>
+  <div class="screen-label">Empty State</div>
 
   <div class="phone">
+
+    <div class="nav-header">
 
     <div class="status-bar">
       <span>9:41</span>
@@ -71,19 +83,21 @@
       </a>
     </div>
 
+    </div>
+
     <div class="empty-container">
 
       <svg width="180" height="155" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="20" y="88" width="100" height="14" rx="4" fill="#1B4332"/>
-        <rect x="22" y="86" width="96" height="5" rx="2" fill="#2D5A3D"/>
+        <rect x="20" y="88" width="100" height="14" rx="4" fill="#7f00ff"/>
+        <rect x="22" y="86" width="96" height="5" rx="2" fill="#5a1adb"/>
         <rect x="28" y="70" width="84" height="20" rx="4" fill="#7A2E2E"/>
-        <rect x="30" y="68" width="80" height="5" rx="2" fill="#8B3535"/>
+        <rect x="30" y="68" width="80" height="5" rx="2" fill="var(--accent-hover)"/>
         <rect x="35" y="52" width="70" height="20" rx="4" fill="#C9A227"/>
         <rect x="37" y="50" width="66" height="5" rx="2" fill="#D4A830"/>
         <circle cx="70" cy="62" r="7" fill="#F7F1E6" opacity="0.9"/>
-        <circle cx="67.5" cy="60.5" r="1" fill="#2B2320"/>
-        <circle cx="72.5" cy="60.5" r="1" fill="#2B2320"/>
-        <path d="M67 64 Q70 67 73 64" stroke="#2B2320" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <circle cx="67.5" cy="60.5" r="1" fill="var(--text)"/>
+        <circle cx="72.5" cy="60.5" r="1" fill="var(--text)"/>
+        <path d="M67 64 Q70 67 73 64" stroke="var(--text)" stroke-width="1" fill="none" stroke-linecap="round"/>
         <text x="15" y="45" font-size="12" fill="#C9A227" opacity="0.6">✦</text>
         <text x="118" y="70" font-size="10" fill="#C9A227" opacity="0.5">✦</text>
       </svg>
@@ -97,7 +111,7 @@
   </div>
 
   <div class="jira-badge">
-    <span class="jira-tag">S1 – Empty State</span>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-3" target="_blank">FBI-3 – Empty State</a>
   </div>
 
 </body>

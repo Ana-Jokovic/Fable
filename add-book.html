@@ -49,7 +49,7 @@
     }
     .field-input.focused { border-color: var(--nav); box-shadow: 0 0 0 3px rgba(27,67,50,0.08); }
     .field-input.placeholder { color: var(--text2); }
-    .field-input.error { border-color: var(--accent); background: #FDF5F5; }
+    .field-input.error { border-color: var(--accent); background: var(--surface2); }
     .field-error { font-size: 11px; color: var(--accent); }
     .tags-input {
       min-height: 46px;
@@ -120,7 +120,7 @@
       text-decoration: none;
       box-shadow: 0 4px 16px rgba(122,46,46,0.35);
     }
-    .submit-btn:hover { background: #8B3535; }
+    .submit-btn:hover { background: var(--accent-hover); }
     .helper { font-size: 11px; color: var(--text2); text-align: center; }
     .helper span { color: var(--accent); }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -128,10 +128,21 @@
 </head>
 <body>
 
-  <div class="screen-label">S2 · S3 · S10 · S17 – Add Book</div>
+  <div class="page-header">
+    <div class="header-top">
+      <a class="page-back" href="book-detail-wishlist.html">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="final-mockups.html">Mockups</a>
+      </div>
+      <a class="page-next" href="edit-book.html">Next →</a>
+    </div>
+  </div>
+  <div class="screen-label">Add Book</div>
 
   <div class="phone">
 
+    <div class="nav-header">
     <div class="status-bar">
       <span>9:41</span>
       <span>●●● 🔋</span>
@@ -141,6 +152,7 @@
       <a class="nav-back" href="book-list-read.html">Cancel</a>
       <div class="nav-title">Add Book</div>
       <div style="width:48px;"></div>
+    </div>
     </div>
 
     <div class="form-scroll">
@@ -226,10 +238,10 @@
   </div>
 
   <div class="jira-badge">
-    <span class="jira-tag">S2 – Add Book</span>
-    <span class="jira-tag">S3 – Validation</span>
-    <span class="jira-tag">S10 – Cover Image</span>
-    <span class="jira-tag">S17 – Rating</span>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-4" target="_blank">FBI-4 – Add Book</a>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-9" target="_blank">FBI-9 – Extended Fields</a>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12 – Cover Image</a>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-11" target="_blank">FBI-11 – Rating</a>
   </div>
 
 </body>

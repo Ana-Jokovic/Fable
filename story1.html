@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S1 – Empty State of Home Screen</title>
+  <title>FBI-3 – Empty State of Home Screen</title>
   <link rel="stylesheet" href="theme.css">
   <style>
     .page-header {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
       margin-bottom: 32px;
     }
     .page-header h1 {
       font-size: 22px;
       font-weight: 800;
-      color: #2B2320;
-      margin-bottom: 6px;
+      color: var(--text);
     }
     .page-header p {
       font-size: 13px;
       color: #8A7C6C;
       max-width: 480px;
-      margin: 0 auto;
+      text-align: center;
       line-height: 1.5;
     }
     .story-section {
@@ -99,7 +101,7 @@
     }
     .ac-box li {
       font-size: 12px;
-      color: #2B2320;
+      color: var(--text);
       line-height: 1.5;
       padding-left: 16px;
       position: relative;
@@ -108,7 +110,7 @@
       content: '✓';
       position: absolute;
       left: 0;
-      color: #1B4332;
+      color: #7f00ff;
       font-weight: 700;
     }
     .note {
@@ -122,10 +124,16 @@
 </head>
 <body>
 
-  <a class="back" href="stories.html" style="font-size:13px; font-weight:600; color:#8A7C6C; text-decoration:none; display:block; text-align:center; margin-bottom:24px;">← Back to Stories</a>
-
   <div class="page-header">
-    <h1>S1 – Empty State of Home Screen</h1>
+    <div class="header-top">
+      <a class="page-back" href="stories.html" style="visibility:hidden">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="stories.html">Stories</a>
+      </div>
+      <a class="page-next" href="story2.html">Next →</a>
+    </div>
+    <h1>FBI-3 – Empty State of Home Screen</h1>
     <p>As a user, I want to see an empty state screen on opening the app, when there are no books in the list, so that I understand how to add my first book.</p>
   </div>
 
@@ -147,16 +155,16 @@
       <div class="empty-container">
 
         <svg width="180" height="155" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="20" y="88" width="100" height="14" rx="4" fill="#1B4332"/>
-          <rect x="22" y="86" width="96" height="5" rx="2" fill="#2D5A3D"/>
+          <rect x="20" y="88" width="100" height="14" rx="4" fill="#7f00ff"/>
+          <rect x="22" y="86" width="96" height="5" rx="2" fill="#5a1adb"/>
           <rect x="28" y="70" width="84" height="20" rx="4" fill="#7A2E2E"/>
-          <rect x="30" y="68" width="80" height="5" rx="2" fill="#8B3535"/>
+          <rect x="30" y="68" width="80" height="5" rx="2" fill="var(--accent-hover)"/>
           <rect x="35" y="52" width="70" height="20" rx="4" fill="#C9A227"/>
           <rect x="37" y="50" width="66" height="5" rx="2" fill="#D4A830"/>
           <circle cx="70" cy="62" r="7" fill="#F7F1E6" opacity="0.9"/>
-          <circle cx="67.5" cy="60.5" r="1" fill="#2B2320"/>
-          <circle cx="72.5" cy="60.5" r="1" fill="#2B2320"/>
-          <path d="M67 64 Q70 67 73 64" stroke="#2B2320" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <circle cx="67.5" cy="60.5" r="1" fill="var(--text)"/>
+          <circle cx="72.5" cy="60.5" r="1" fill="var(--text)"/>
+          <path d="M67 64 Q70 67 73 64" stroke="var(--text)" stroke-width="1" fill="none" stroke-linecap="round"/>
           <text x="15" y="45" font-size="12" fill="#C9A227" opacity="0.6">✦</text>
           <text x="118" y="70" font-size="10" fill="#C9A227" opacity="0.5">✦</text>
         </svg>
@@ -170,7 +178,7 @@
     </div>
 
     <div class="jira-badge">
-      <span class="jira-tag">S1 – Empty State</span>
+      <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-3" target="_blank">FBI-3 – Empty State</a>
     </div>
 
     <div class="ac-box">
@@ -183,7 +191,7 @@
         <li>Subtitle: "Every great shelf starts with one book. What did you read last?"</li>
         <li>Button: "Add a book" — visible and tappable</li>
       </ul>
-      <p class="note">Note: "Add a book" button does nothing — will be wired in S2.</p>
+      <p class="note">Note: "Add a book" button does nothing — will be wired in FBI-4.</p>
     </div>
 
   </div>

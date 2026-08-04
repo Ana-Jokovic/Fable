@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S11 – Search</title>
+  <title>FBI-13 – Search</title>
   <link rel="stylesheet" href="theme.css">
   <style>
-    .page-header { text-align: center; margin-bottom: 32px; }
-    .page-header h1 { font-size: 22px; font-weight: 800; color: #2B2320; margin-bottom: 6px; }
-    .page-header p { font-size: 13px; color: #8A7C6C; max-width: 600px; margin: 0 auto; line-height: 1.5; }
-    .back { font-size: 13px; font-weight: 600; color: #8A7C6C; text-decoration: none; display: block; text-align: center; margin-bottom: 24px; }
-    .back:hover { color: #2B2320; }
+    .page-header { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 32px; }
+    .page-header h1 { font-size: 22px; font-weight: 800; color: var(--text); }
+    .page-header p { font-size: 13px; color: #8A7C6C; max-width: 600px; text-align: center; line-height: 1.5; }
     .screens-row { display: flex; gap: 32px; align-items: flex-start; justify-content: center; flex-wrap: wrap; }
     .screen-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .screen-col .phone { height: 720px; display: flex; flex-direction: column; }
@@ -81,20 +79,26 @@
     .ac-box h3 { font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
     .ac-row { display: flex; gap: 24px; flex-wrap: wrap; }
     .ac-col { flex: 1; min-width: 160px; }
-    .ac-col-title { font-size: 11px; font-weight: 700; color: #2B2320; margin-bottom: 6px; }
+    .ac-col-title { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .ac-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-    .ac-col li { font-size: 12px; color: #2B2320; line-height: 1.5; padding-left: 16px; position: relative; }
-    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #1B4332; font-weight: 700; }
+    .ac-col li { font-size: 12px; color: var(--text); line-height: 1.5; padding-left: 16px; position: relative; }
+    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #7f00ff; font-weight: 700; }
     .ac-col li.out { color: #8A7C6C; }
     .ac-col li.out::before { content: '✕'; color: #8A7C6C; }
   </style>
 </head>
 <body>
 
-  <a class="back" href="stories.html">← Back to Stories</a>
-
   <div class="page-header">
-    <h1>S11 – Search</h1>
+    <div class="header-top">
+      <a class="page-back" href="story10.html">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="stories.html">Stories</a>
+      </div>
+      <a class="page-next" href="story12.html">Next →</a>
+    </div>
+    <h1>FBI-13 – Search</h1>
     <p>As a user, I want to search my book list by title or author, so that I can quickly find a specific book without scrolling through the entire list.</p>
   </div>
 
@@ -172,7 +176,7 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S11 – Search idle</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-13" target="_blank">FBI-13 – Search idle</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -221,7 +225,7 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S11 – Results found</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-13" target="_blank">FBI-13 – Results found</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -252,7 +256,7 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S11 – No results</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-13" target="_blank">FBI-13 – No results</a></div>
     </div>
 
   </div>

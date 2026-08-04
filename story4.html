@@ -3,28 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S4 – Book Detail</title>
+  <title>FBI-6 – Book Detail</title>
   <link rel="stylesheet" href="theme.css">
   <style>
-    .page-header {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-    .page-header h1 {
-      font-size: 22px;
-      font-weight: 800;
-      color: #2B2320;
-      margin-bottom: 6px;
-    }
-    .page-header p {
-      font-size: 13px;
-      color: #8A7C6C;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.5;
-    }
-    .back { font-size: 13px; font-weight: 600; color: #8A7C6C; text-decoration: none; display: block; text-align: center; margin-bottom: 24px; }
-    .back:hover { color: #2B2320; }
+    .page-header { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 32px; }
+    .page-header h1 { font-size: 22px; font-weight: 800; color: var(--text); }
+    .page-header p { font-size: 13px; color: #8A7C6C; max-width: 600px; text-align: center; line-height: 1.5; }
     .screens-row {
       display: flex;
       gap: 40px;
@@ -126,26 +110,32 @@
     }
     .ac-row { display: flex; gap: 24px; flex-wrap: wrap; }
     .ac-col { flex: 1; min-width: 180px; }
-    .ac-col-title { font-size: 11px; font-weight: 700; color: #2B2320; margin-bottom: 6px; }
+    .ac-col-title { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .ac-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
     .ac-col li {
       font-size: 12px;
-      color: #2B2320;
+      color: var(--text);
       line-height: 1.5;
       padding-left: 16px;
       position: relative;
     }
-    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #1B4332; font-weight: 700; }
+    .ac-col li::before { content: '✓'; position: absolute; left: 0; color: #7f00ff; font-weight: 700; }
     .ac-col li.out { color: #8A7C6C; }
     .ac-col li.out::before { content: '✕'; color: #8A7C6C; }
   </style>
 </head>
 <body>
 
-  <a class="back" href="stories.html">← Back to Stories</a>
-
   <div class="page-header">
-    <h1>S4 – Book Detail</h1>
+    <div class="header-top">
+      <a class="page-back" href="story3.html">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="stories.html">Stories</a>
+      </div>
+      <a class="page-next" href="story5.html">Next →</a>
+    </div>
+    <h1>FBI-6 – Book Detail</h1>
     <p>As a user, I want to see the details of a book I've added, so that I can quickly review the information I saved.</p>
   </div>
 
@@ -187,7 +177,7 @@
           <div class="fab">+</div>
         </div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S4 – Entry point</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-6" target="_blank">FBI-6 – Entry point</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -200,7 +190,7 @@
           <span>9:41</span><span>●●● 🔋</span>
         </div>
         <div class="nav-bar">
-          <a class="nav-back" href="#">‹ Back</a>
+          <a class="nav-back" href="#">‹</a>
           <div class="nav-title">Detail</div>
           <div style="width:48px;"></div>
         </div>
@@ -209,7 +199,7 @@
           <div class="detail-author">Gillian Flynn</div>
         </div>
       </div>
-      <div class="jira-badge"><span class="jira-tag">S4 – Book Detail</span></div>
+      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-6" target="_blank">FBI-6 – Book Detail</a></div>
     </div>
 
   </div>

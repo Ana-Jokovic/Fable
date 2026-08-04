@@ -108,7 +108,7 @@
       text-decoration: none;
       box-shadow: 0 4px 16px rgba(122,46,46,0.3);
     }
-    .btn-edit:hover { background: #8B3535; }
+    .btn-edit:hover { background: var(--accent-hover); }
     .btn-delete {
       width: 48px;
       height: 48px;
@@ -127,19 +127,31 @@
 </head>
 <body>
 
-  <div class="screen-label">Wish List – Book Detail</div>
+  <div class="page-header">
+    <div class="header-top">
+      <a class="page-back" href="book-detail.html">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="final-mockups.html">Mockups</a>
+      </div>
+      <a class="page-next" href="add-book.html">Next →</a>
+    </div>
+  </div>
+  <div class="screen-label">Book Detail (Wish List)</div>
 
   <div class="phone">
 
+    <div class="nav-header">
     <div class="status-bar">
       <span>9:41</span>
       <span>●●● 🔋</span>
     </div>
 
     <div class="nav-bar">
-      <a class="nav-back" href="book-list-wishlist.html">‹ Back</a>
+      <a class="nav-back" href="#">‹</a>
       <div class="nav-title">Detail</div>
       <a class="nav-action" href="edit-book.html">Edit</a>
+    </div>
     </div>
 
     <div class="detail-cover">
@@ -195,7 +207,7 @@
   </div>
 
   <div class="jira-badge">
-    <span class="jira-tag">Wish List – Book Detail</span>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-6" target="_blank">FBI-6 – Book Detail (Wish List)</a>
   </div>
 
 </body>

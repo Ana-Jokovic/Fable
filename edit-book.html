@@ -78,7 +78,7 @@
       text-decoration: none;
       box-shadow: 0 4px 16px rgba(122,46,46,0.35);
     }
-    .submit-btn:hover { background: #8B3535; }
+    .submit-btn:hover { background: var(--accent-hover); }
     .delete-btn {
       height: 48px; border-radius: 14px;
       background: transparent; color: var(--accent);
@@ -86,15 +86,26 @@
       display: flex; align-items: center; justify-content: center;
       text-decoration: none; border: 1.5px solid var(--accent);
     }
-    .delete-btn:hover { background: #FDF5F5; }
+    .delete-btn:hover { background: var(--surface2); }
   </style>
 </head>
 <body>
 
-  <div class="screen-label">S7 · S10 – Edit Book</div>
+  <div class="page-header">
+    <div class="header-top">
+      <a class="page-back" href="add-book.html">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="final-mockups.html">Mockups</a>
+      </div>
+      <a class="page-next" href="filter-sheet.html">Next →</a>
+    </div>
+  </div>
+  <div class="screen-label">Edit Book</div>
 
   <div class="phone">
 
+    <div class="nav-header">
     <div class="status-bar">
       <span>9:41</span>
       <span>●●● 🔋</span>
@@ -104,6 +115,7 @@
       <a class="nav-back" href="book-detail.html">Cancel</a>
       <div class="nav-title">Edit Book</div>
       <div style="width:48px;"></div>
+    </div>
     </div>
 
     <div class="form-scroll">
@@ -206,9 +218,9 @@
   </script>
 
   <div class="jira-badge">
-    <span class="jira-tag">S7 – Edit Book</span>
-    <span class="jira-tag">S8 – Delete Book</span>
-    <span class="jira-tag">S10 – Cover Image</span>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-7" target="_blank">FBI-7 – Edit Book</a>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-8" target="_blank">FBI-8 – Delete Book</a>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12 – Cover Image</a>
   </div>
 
 </body>

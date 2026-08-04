@@ -15,12 +15,36 @@
     header {
       display: flex;
       align-items: center;
-      gap: 16px;
+      justify-content: center;
+      max-width: 900px;
+      width: 100%;
       margin-bottom: 40px;
     }
-    .back { font-size: 13px; font-weight: 600; color: #8A7C6C; text-decoration: none; }
-    .back:hover { color: #2B2320; }
-    header h1 { font-size: 24px; font-weight: 800; color: #2B2320; }
+    .back {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8A7C6C;
+      text-decoration: none;
+      justify-self: start;
+    }
+    .back:hover { color: var(--text); }
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      justify-self: center;
+    }
+    .page-icon {
+      display: block;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .page-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    header h1 { font-size: 24px; font-weight: 800; color: var(--text); }
     .section { margin-bottom: 40px; }
     .section-title {
       font-size: 11px;
@@ -46,7 +70,7 @@
     .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
     .card-thumb {
       height: 140px;
-      background: #1B4332;
+      background: var(--nav);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -56,14 +80,18 @@
     .card-title { font-size: 14px; font-weight: 700; color: #2B2320; }
     .card-desc  { font-size: 11px; color: #8A7C6C; line-height: 1.4; }
     .jira-tags  { display: flex; gap: 4px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
-    .jira-tag   { font-size: 9px; font-weight: 700; background: #0052CC; color: white; border-radius: 4px; padding: 2px 6px; }
+    .jira-tag   { font-size: 9px; font-weight: 700; background: #0052CC; color: white; border-radius: 4px; padding: 2px 6px; cursor: pointer; }
+    .jira-tag:hover { background: #0747A6; }
   </style>
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
 
   <header>
-    <a class="back" href="index.html">← Back</a>
-    <h1>Final Mockups</h1>
+    <div class="header-center">
+      <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+      <h1>Final Mockups</h1>
+    </div>
   </header>
 
   <!-- Book List -->
@@ -77,9 +105,8 @@
           <div class="card-title">Book List – Read</div>
           <div class="card-desc">Main screen with search, filter chips and sort. Read tab active.</div>
           <div class="jira-tags">
-            <span class="jira-tag">S3</span><span class="jira-tag">S4</span>
-            <span class="jira-tag">S5</span><span class="jira-tag">S11</span>
-            <span class="jira-tag">S12</span>
+            <span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-5','_blank')">FBI-5</span>
+            <span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-10','_blank')">FBI-10</span><span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-13','_blank')">FBI-13</span>
           </div>
         </div>
       </a>
@@ -90,7 +117,7 @@
           <div class="card-title">Book List – Wish List</div>
           <div class="card-desc">Wish List tab active with books the user wants to read.</div>
           <div class="jira-tags">
-            <span class="jira-tag">S8</span><span class="jira-tag">S9</span>
+            <span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-10','_blank')">FBI-10</span>
           </div>
         </div>
       </a>
@@ -100,7 +127,7 @@
         <div class="card-body">
           <div class="card-title">Book List – Empty State</div>
           <div class="card-desc">Empty state shown when no books are logged yet.</div>
-          <div class="jira-tags"><span class="jira-tag">S1</span></div>
+          <div class="jira-tags"><span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-3','_blank')">FBI-3</span></div>
         </div>
       </a>
 
@@ -118,7 +145,7 @@
           <div class="card-title">Book Detail</div>
           <div class="card-desc">Full detail screen with all book fields, cover and rating.</div>
           <div class="jira-tags">
-            <span class="jira-tag">S6</span><span class="jira-tag">S17</span>
+            <span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-6','_blank')">FBI-6</span><span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-11','_blank')">FBI-11</span>
           </div>
         </div>
       </a>
@@ -128,7 +155,7 @@
         <div class="card-body">
           <div class="card-title">Book Detail – Wish List</div>
           <div class="card-desc">Detail screen for a book on the Wish List.</div>
-          <div class="jira-tags"><span class="jira-tag">S8</span></div>
+          <div class="jira-tags"><span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-6','_blank')">FBI-6</span></div>
         </div>
       </a>
 
@@ -150,7 +177,7 @@
           <div class="card-title">Add Book</div>
           <div class="card-desc">Form for adding a new book with all fields and validation states.</div>
           <div class="jira-tags">
-            <span class="jira-tag">S2</span><span class="jira-tag">S3</span><span class="jira-tag">S17</span>
+            <span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-4','_blank')">FBI-4</span><span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-9','_blank')">FBI-9</span><span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-11','_blank')">FBI-11</span>
           </div>
         </div>
       </a>
@@ -161,7 +188,7 @@
           <div class="card-title">Edit Book</div>
           <div class="card-desc">Pre-filled form for editing an existing book.</div>
           <div class="jira-tags">
-            <span class="jira-tag">S7</span><span class="jira-tag">S10</span>
+            <span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-9','_blank')">FBI-9</span><span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-12','_blank')">FBI-12</span>
           </div>
         </div>
       </a>
@@ -184,7 +211,7 @@
           <div class="card-title">Filter Sheet</div>
           <div class="card-desc">Bottom sheet for filtering by genre and author.</div>
           <div class="jira-tags">
-            <span class="jira-tag">S13</span><span class="jira-tag">S14</span><span class="jira-tag">S15</span>
+            <span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-14','_blank')">FBI-14</span>
           </div>
         </div>
       </a>
@@ -193,15 +220,15 @@
         <div class="card-thumb">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F7F1E6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
-            <circle cx="9" cy="6" r="2" fill="#1B4332" stroke="#F7F1E6" stroke-width="1.5"/>
-            <circle cx="15" cy="12" r="2" fill="#1B4332" stroke="#F7F1E6" stroke-width="1.5"/>
-            <circle cx="9" cy="18" r="2" fill="#1B4332" stroke="#F7F1E6" stroke-width="1.5"/>
+            <circle cx="9" cy="6" r="2" fill="#7f00ff" stroke="#F7F1E6" stroke-width="1.5"/>
+            <circle cx="15" cy="12" r="2" fill="#7f00ff" stroke="#F7F1E6" stroke-width="1.5"/>
+            <circle cx="9" cy="18" r="2" fill="#7f00ff" stroke="#F7F1E6" stroke-width="1.5"/>
           </svg>
         </div>
         <div class="card-body">
           <div class="card-title">Sort Sheet</div>
           <div class="card-desc">Bottom sheet for sorting the book list by different criteria.</div>
-          <div class="jira-tags"><span class="jira-tag">S16</span></div>
+          <div class="jira-tags"><span class="jira-tag" onclick="event.stopPropagation();window.open('https://kaibyte-dev.atlassian.net/browse/FBI-15','_blank')">FBI-15</span></div>
         </div>
       </a>
 

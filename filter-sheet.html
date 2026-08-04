@@ -71,7 +71,7 @@
       text-decoration: none;
       box-shadow: 0 4px 16px rgba(122,46,46,0.35);
     }
-    .apply-btn:hover { background: #8B3535; }
+    .apply-btn:hover { background: var(--accent-hover); }
 
     /* Background screen peek */
     .bg-peek {
@@ -93,10 +93,21 @@
 </head>
 <body>
 
-  <div class="screen-label">S13 · S14 · S15 – Filter Sheet</div>
+  <div class="page-header">
+    <div class="header-top">
+      <a class="page-back" href="edit-book.html">← Prev</a>
+      <div class="page-icon-wrap">
+        <a class="page-icon" href="index.html"><img src="Fable.png" alt="Fable"></a>
+        <a class="page-stories" href="final-mockups.html">Mockups</a>
+      </div>
+      <a class="page-next" href="sort-sheet.html">Next →</a>
+    </div>
+  </div>
+  <div class="screen-label">Filter Sheet</div>
 
   <div class="phone">
 
+    <div class="nav-header">
     <div class="status-bar">
       <span>9:41</span>
       <span>●●● 🔋</span>
@@ -108,6 +119,7 @@
         <a class="nav-icon" href="sort-sheet.html">⇅</a>
         <span class="nav-icon" style="color:var(--gold);">⊟</span>
       </div>
+    </div>
     </div>
 
     <div class="dimmed-bg">
@@ -199,9 +211,7 @@
   </div>
 
   <div class="jira-badge">
-    <span class="jira-tag">S13 – Filter by Genre</span>
-    <span class="jira-tag">S14 – Filter by Author</span>
-    <span class="jira-tag">S15 – Reset Filters</span>
+    <span class="jira-tag">Filter Sheet</span>
   </div>
 
 </body>
