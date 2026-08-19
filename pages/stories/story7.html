@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FBI-9 – Extended Form Fields</title>
+  <title>S7 – Extended Form Fields</title>
   <link rel="stylesheet" href="../../assets/theme.css">
   <style>
     .page-header { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 32px; }
@@ -13,7 +13,7 @@
     .screen-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .screen-col .phone { height: 720px; display: flex; flex-direction: column; }
     .screen-label { font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
-    .arrow { font-size: 28px; color: #C9A227; align-self: center; margin-top: 80px; }
+    .arrow { font-size: 28px; color: #2B2320; align-self: center; margin-top: 80px; }
 
     /* Form */
     .form-scroll { flex: 1; overflow-y: auto; background: var(--bg); }
@@ -97,8 +97,8 @@
       </div>
       <a class="page-next" href="story8.html">Next →</a>
     </div>
-    <h1>FBI-9 – Extended Form Fields</h1>
-    <p>As a user, I want to add more details when logging a book, so that I can keep a richer record of my reading history.</p>
+    <h1>S7 – Extended Form Fields</h1>
+    <p>As a user, I want to add more details when logging a book, so that I can keep a richer record of my reading history — including genre, pages, publisher, dates and a personal description.</p>
   </div>
 
   <div class="screens-row">
@@ -107,11 +107,13 @@
     <div class="screen-col">
       <div class="screen-label">1 · Add Book – extended fields</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <a class="nav-back" href="#">Cancel</a>
           <div class="nav-title">Add Book</div>
           <div style="width:48px;"></div>
+        </div>
         </div>
         <div class="form-scroll">
           <div class="form-body">
@@ -155,6 +157,11 @@
               </div>
             </div>
 
+            <div class="field-group">
+              <div class="field-label">Description</div>
+              <div class="field-input placeholder" style="height:72px; align-items:flex-start; padding-top:12px;">Add a description...</div>
+            </div>
+
             <div class="section-divider"></div>
 
             <a class="submit-btn" href="#">Save Book</a>
@@ -163,7 +170,6 @@
           </div>
         </div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-9" target="_blank">FBI-9 – Add Book form</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -172,9 +178,11 @@
     <div class="screen-col">
       <div class="screen-label">2 · Genre on book row</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <div class="nav-title">My Books</div>
+        </div>
         </div>
         <div class="book-list">
           <div class="book-card">
@@ -208,7 +216,6 @@
           <div class="fab">+</div>
         </div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-9" target="_blank">FBI-9 – Genre on row</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -217,11 +224,13 @@
     <div class="screen-col">
       <div class="screen-label">3 · Edit Book – pre-filled</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <a class="nav-back" href="#">Cancel</a>
           <div class="nav-title">Edit Book</div>
           <div style="width:48px;"></div>
+        </div>
         </div>
         <div class="form-scroll">
           <div class="form-body">
@@ -265,6 +274,11 @@
               </div>
             </div>
 
+            <div class="field-group">
+              <div class="field-label">Description</div>
+              <div class="field-input" style="height:72px; align-items:flex-start; padding-top:12px; font-size:13px; color:var(--text2);">A young boy is recruited to an elite military school in space...</div>
+            </div>
+
             <div class="section-divider"></div>
 
             <a class="submit-btn" href="#">Save Changes</a>
@@ -273,7 +287,6 @@
           </div>
         </div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-9" target="_blank">FBI-9 – Edit Book form</a></div>
     </div>
 
   </div>
@@ -288,6 +301,7 @@
           <ul>
             <li>Genre, Pages, Publisher visible</li>
             <li>Date Published, Date Read visible</li>
+            <li>Description textarea visible</li>
             <li>All extended fields are optional</li>
             <li>Book saves without extended fields</li>
           </ul>
@@ -303,6 +317,7 @@
           <div class="ac-col-title">Edit Book form</div>
           <ul>
             <li>All extended fields pre-filled</li>
+            <li>Description pre-filled if saved</li>
             <li>User can update any field</li>
             <li>Save Changes persists updates</li>
           </ul>
@@ -312,11 +327,14 @@
           <ul>
             <li class="out">Rating</li>
             <li class="out">Cover image</li>
-            <li class="out">Description</li>
           </ul>
         </div>
       </div>
     </div>
+  </div>
+  <div class="jira-badge">
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-9" target="_blank">FBI-9</a>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBA-7" target="_blank">FBA-7</a>
   </div>
 
 </body>

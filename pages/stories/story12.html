@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FBI-14 – Filter Sheet</title>
+  <title>S12 – Filter Sheet</title>
   <link rel="stylesheet" href="../../assets/theme.css">
   <style>
     .page-header { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 32px; }
@@ -13,7 +13,7 @@
     .screen-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .screen-col .phone { height: 720px; display: flex; flex-direction: column; }
     .screen-label { font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1px; text-align: center; max-width: 200px; }
-    .arrow { font-size: 28px; color: #C9A227; align-self: center; margin-top: 80px; }
+    .arrow { font-size: 28px; color: #2B2320; align-self: center; margin-top: 80px; }
 
     /* Search row */
     .search-row { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--bg); }
@@ -145,7 +145,7 @@
       </div>
       <a class="page-next" href="story13.html">Next →</a>
     </div>
-    <h1>FBI-14 – Filter Sheet</h1>
+    <h1>S12 – Filter Sheet</h1>
     <p>As a user, I want to filter my book list by genre and author, so that I can browse a specific subset of my library without using the search bar.</p>
   </div>
 
@@ -155,13 +155,15 @@
     <div class="screen-col">
       <div class="screen-label">1 · Book list – no filters</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <div class="nav-title">My Books</div>
         </div>
         <div class="top-tabs">
           <a class="tab active" href="#">Read <span class="tab-count">5</span></a>
           <a class="tab" href="#">Wish List <span class="tab-count">2</span></a>
+        </div>
         </div>
         <div class="search-row">
           <div class="search-input">🔍 Search by title or author...</div>
@@ -221,7 +223,6 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-14" target="_blank">FBI-14 – No filters</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -230,9 +231,11 @@
     <div class="screen-col">
       <div class="screen-label">2 · Filter sheet – genre + author selected</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <div class="nav-title">My Books</div>
+        </div>
         </div>
         <div class="dimmed-bg">
           <div class="bg-peek">
@@ -308,7 +311,6 @@
           </div>
         </div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-14" target="_blank">FBI-14 – Filter sheet open</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -317,13 +319,15 @@
     <div class="screen-col">
       <div class="screen-label">3 · Filters applied – 2 results</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <div class="nav-title">My Books</div>
         </div>
         <div class="top-tabs">
           <a class="tab active" href="#">Read <span class="tab-count">5</span></a>
           <a class="tab" href="#">Wish List <span class="tab-count">2</span></a>
+        </div>
         </div>
         <div class="search-row">
           <div class="search-input">🔍 Search by title or author...</div>
@@ -358,7 +362,6 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-14" target="_blank">FBI-14 – Filters applied</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -367,13 +370,15 @@
     <div class="screen-col">
       <div class="screen-label">4 · Clear All – full list restored</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <div class="nav-title">My Books</div>
         </div>
         <div class="top-tabs">
           <a class="tab active" href="#">Read <span class="tab-count">5</span></a>
           <a class="tab" href="#">Wish List <span class="tab-count">2</span></a>
+        </div>
         </div>
         <div class="search-row">
           <div class="search-input">🔍 Search by title or author...</div>
@@ -433,7 +438,6 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-14" target="_blank">FBI-14 – Filters cleared</a></div>
     </div>
 
   </div>
@@ -482,6 +486,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="jira-badge">
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-14" target="_blank">FBI-14</a>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBA-12" target="_blank">FBA-12</a>
   </div>
 
 </body>

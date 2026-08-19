@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FBI-12 – Cover Image</title>
+  <title>S10 – Cover Image</title>
   <link rel="stylesheet" href="../../assets/theme.css">
   <style>
     .page-header { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 32px; }
@@ -13,7 +13,7 @@
     .screen-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .screen-col .phone { height: 720px; display: flex; flex-direction: column; }
     .screen-label { font-size: 11px; font-weight: 700; color: #8A7C6C; text-transform: uppercase; letter-spacing: 1px; text-align: center; max-width: 200px; }
-    .arrow { font-size: 28px; color: #C9A227; align-self: center; margin-top: 80px; }
+    .arrow { font-size: 28px; color: #2B2320; align-self: center; margin-top: 80px; }
 
     /* Form */
     .form-scroll { flex: 1; overflow-y: auto; background: var(--bg); }
@@ -81,20 +81,21 @@
     /* Cover picker – filled */
     .cover-preview {
       align-self: center;
-      width: 90px; height: 124px;
-      border-radius: 10px;
-      overflow: hidden;
       position: relative;
       flex-shrink: 0;
-      box-shadow: 0 4px 16px rgba(43,35,32,0.18);
     }
-    .cover-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cover-preview img {
+      width: 90px; height: 124px;
+      border-radius: 10px;
+      object-fit: cover; display: block;
+    }
     .cover-preview-badge {
-      position: absolute; bottom: 5px; right: 5px;
-      width: 22px; height: 22px; border-radius: 50%;
+      position: absolute; bottom: -8px; right: -8px;
+      width: 28px; height: 28px; border-radius: 50%;
       background: var(--accent);
       display: flex; align-items: center; justify-content: center;
-      font-size: 11px; color: var(--bg);
+      font-size: 14px; color: var(--bg);
+      border: 2px solid var(--bg);
     }
 
     /* Book list */
@@ -121,12 +122,9 @@
     .book-chevron { font-size: 16px; color: var(--border); flex-shrink: 0; }
 
     /* Book detail */
-    .detail-cover { flex-shrink: 0; height: 200px; overflow: hidden; position: relative; background: var(--nav); }
-    .detail-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .detail-cover-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
-      background: linear-gradient(transparent, var(--bg));
-    }
+    .detail-cover { flex-shrink: 0; position: relative; background: var(--nav); }
+    .detail-cover img { width: 100%; display: block; }
+    .detail-cover-overlay { display: none; }
     .detail-body { flex: 1; padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; background: var(--bg); overflow-y: auto; }
     .detail-genre { font-size: 11px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.8px; }
     .detail-title { font-size: 22px; font-weight: 800; color: var(--text); line-height: 1.2; }
@@ -166,7 +164,7 @@
       </div>
       <a class="page-next" href="story11.html">Next →</a>
     </div>
-    <h1>FBI-12 – Cover Image</h1>
+    <h1>S10 – Cover Image</h1>
     <p>As a user, I want to attach a cover image to a book, so that my list is more visual and I can recognise books at a glance without reading the title.</p>
   </div>
 
@@ -176,11 +174,13 @@
     <div class="screen-col">
       <div class="screen-label">1 · Add Book – no cover</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <a class="nav-back" href="#">Cancel</a>
           <div class="nav-title">Add Book</div>
           <div style="width:48px;"></div>
+        </div>
         </div>
         <div class="form-scroll">
           <div class="form-body">
@@ -241,13 +241,16 @@
                 <span class="star empty">★</span>
               </div>
             </div>
+            <div class="field-group">
+              <div class="field-label">Description</div>
+              <div class="field-input placeholder" style="height:72px; align-items:flex-start; padding-top:12px;">Add a description...</div>
+            </div>
             <div class="section-divider"></div>
             <a class="submit-btn" href="#">Save Book</a>
             <div class="helper">Fields marked with <span>*</span> are required</div>
           </div>
         </div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12 – No cover</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -256,11 +259,13 @@
     <div class="screen-col">
       <div class="screen-label">2 · Add Book – cover selected</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <a class="nav-back" href="#">Cancel</a>
           <div class="nav-title">Add Book</div>
           <div style="width:48px;"></div>
+        </div>
         </div>
         <div class="form-scroll">
           <div class="form-body">
@@ -321,13 +326,16 @@
                 <span class="star empty">★</span>
               </div>
             </div>
+            <div class="field-group">
+              <div class="field-label">Description</div>
+              <div class="field-input placeholder" style="height:72px; align-items:flex-start; padding-top:12px;">Add a description...</div>
+            </div>
             <div class="section-divider"></div>
             <a class="submit-btn" href="#">Save Book</a>
             <div class="helper">Fields marked with <span>*</span> are required</div>
           </div>
         </div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12 – Cover selected</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -336,13 +344,15 @@
     <div class="screen-col">
       <div class="screen-label">3 · Book list – with covers</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <div class="nav-title">My Books</div>
         </div>
         <div class="top-tabs">
           <a class="tab active" href="#">Read <span class="tab-count">3</span></a>
           <a class="tab" href="#">Wish List <span class="tab-count">1</span></a>
+        </div>
         </div>
         <div class="book-list">
           <div class="book-card">
@@ -378,7 +388,6 @@
         </div>
         <div class="fab-area"><div class="fab">+</div></div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12 – List with covers</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -387,11 +396,13 @@
     <div class="screen-col">
       <div class="screen-label">4 · Book Detail – cover image</div>
       <div class="phone">
-        <div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
+        <div class="nav-header">
+<div class="status-bar"><span>9:41</span><span>●●● 🔋</span></div>
         <div class="nav-bar">
           <a class="nav-back" href="#">‹</a>
           <div class="nav-title">Detail</div>
           <a class="nav-action" href="#">Edit</a>
+        </div>
         </div>
         <div class="detail-cover">
           <img src="https://covers.openlibrary.org/b/isbn/9780307588371-L.jpg" alt="Gone Girl">
@@ -432,7 +443,6 @@
           </a>
         </div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12 – Detail with cover</a></div>
     </div>
 
   </div>
@@ -464,7 +474,6 @@
           <div class="ac-col-title">Book Detail</div>
           <ul>
             <li>Cover displayed full-width at top</li>
-            <li>Gradient overlay fades into background</li>
             <li>No cover → solid colour placeholder</li>
           </ul>
         </div>
@@ -478,6 +487,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="jira-badge">
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-12" target="_blank">FBI-12</a>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBA-10" target="_blank">FBA-10</a>
   </div>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FBI-4 – Add a Book</title>
+  <title>S2 – Add a Book</title>
   <link rel="stylesheet" href="../../assets/theme.css">
   <style>
     .page-header { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 32px; }
@@ -167,21 +167,23 @@
       </div>
       <a class="page-next" href="story3.html">Next →</a>
     </div>
-    <h1>FBI-4 – Add a Book</h1>
+    <h1>S2 – Add a Book</h1>
     <p>As a user, I want to add a new book to my list of read books, so that I can keep track of everything I've read.</p>
   </div>
 
   <div class="screens-row">
 
-    <!-- Screen 1: Home with FAB -->
+    <!-- Screen 1: Home screen -->
     <div class="screen-col">
       <div class="screen-label">1 · Home screen</div>
       <div class="phone">
-        <div class="status-bar">
+        <div class="nav-header">
+<div class="status-bar">
           <span>9:41</span><span>●●● 🔋</span>
         </div>
         <div class="nav-bar">
           <div class="nav-title">My Books</div>
+        </div>
         </div>
         <div class="empty-container">
           <img src="../../assets/emptyBookListImage.png" width="180" alt="Empty book list">
@@ -190,7 +192,6 @@
           <a class="empty-cta" href="#">Add a book</a>
         </div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-4" target="_blank">FBI-4 – Entry point</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -199,13 +200,15 @@
     <div class="screen-col">
       <div class="screen-label">2 · Add Book form</div>
       <div class="phone">
-        <div class="status-bar">
+        <div class="nav-header">
+<div class="status-bar">
           <span>9:41</span><span>●●● 🔋</span>
         </div>
         <div class="nav-bar">
           <a class="nav-back" href="#">Cancel</a>
           <div class="nav-title">Add Book</div>
           <div style="width:48px;"></div>
+        </div>
         </div>
         <div class="form-scroll">
           <div class="form-body">
@@ -226,7 +229,6 @@
           </div>
         </div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-4" target="_blank">FBI-4 – Add Book form</a></div>
     </div>
 
     <div class="arrow">→</div>
@@ -235,13 +237,15 @@
     <div class="screen-col">
       <div class="screen-label">3 · Validation error</div>
       <div class="phone">
-        <div class="status-bar">
+        <div class="nav-header">
+<div class="status-bar">
           <span>9:41</span><span>●●● 🔋</span>
         </div>
         <div class="nav-bar">
           <a class="nav-back" href="#">Cancel</a>
           <div class="nav-title">Add Book</div>
           <div style="width:48px;"></div>
+        </div>
         </div>
         <div class="form-scroll">
           <div class="form-body">
@@ -264,7 +268,6 @@
           </div>
         </div>
       </div>
-      <div class="jira-badge"><a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-4" target="_blank">FBI-4 – Validation error</a></div>
     </div>
 
   </div>
@@ -278,7 +281,6 @@
           <div class="ac-col-title">Open form</div>
           <ul>
             <li>User is on home screen</li>
-            <li>Taps FAB "+" button</li>
             <li>Add Book form opens</li>
             <li>Nav bar shows "Cancel" and "Add Book" title</li>
           </ul>
@@ -288,7 +290,6 @@
           <ul>
             <li>Title and Author are filled in</li>
             <li>User taps "Save Book"</li>
-            <li>Book is saved and appears in the list</li>
             <li>Form closes</li>
           </ul>
         </div>
@@ -304,6 +305,10 @@
       </div>
       <p class="note">Note: This story covers Title, Author, Save Book button, Cancel button and required fields label only. No other fields.</p>
     </div>
+  </div>
+  <div class="jira-badge">
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBI-4" target="_blank">FBI-4</a>
+    <a class="jira-tag" href="https://kaibyte-dev.atlassian.net/browse/FBA-2" target="_blank">FBA-2</a>
   </div>
 
 </body>
